@@ -1,3 +1,0 @@
-class Character {
-  public var str:int  = 0;
-}
