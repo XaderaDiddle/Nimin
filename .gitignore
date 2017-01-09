@@ -47,4 +47,10 @@ Temporary Items
 .apdisk
 
 #Backup code files
-.bak
+*.bak
+
+#Flash files removed to prevent confusion
+*.fla
+
+#nim files are save files
+*.nim
