@@ -1,0 +1,81 @@
+Sentence Building Functions:
+These are the different functions available when building dynamic sentences. Here I'll try to provide all the possible functions, grouped by what they're describing, explaining what they describe, and including what variables you might need to pass to it.
+The file name is listed next to the groupings so you can find them yourself, if you would like to view the full range of what it outputs.
+
+Hair related (Hair.as):
+hairDesc() - Description of hair for sentences (including the word 'hair').
+hairC() - Color of hair for sentences, before hairDesc.
+hairL() - Length of hair for sentences, after hairDesc.
+
+Clothes related (Clothes.as):
+clothesTop() - Noun for the current piece of clothing for the top-half for sentences.
+clothesBottom() - Noun for the current piece of clothing for the bottom-half for sentences.
+currentClothes() - Total outfit description for sentences.
+pullUD(1-2) - Adverb for which way a piece of clothing is pulled (up, down, open, etc). 1 = Top. 2 = Bottom.
+
+Various body parts (Description.as):
+bodyDesc() - Adjective for overall body type.
+tailDesc() - Adjective for describing the player's tail, randomly choosing between 2 descriptions for every tail type (except human-taur).
+skinDesc() - Adjective for describing the player's skin (includes color).
+boobDesc() - Adjective for boob size.
+nipDesc() - Adjective for nipple size.
+udderDesc() - Adjective for udder size.
+teatDesc() - Adjective for teat size for udder.
+buttDesc() - Adjective for butt size.
+vulvaDesc() - Adjective for vulva size.
+clitDesc() - Adjective for clit size.
+cockDesc() - Adjective for cock size.
+ballDesc() - Adjective for ball size.
+hipDesc() - Adjective for hip size.
+bellyDesc() - Adjective for belly size.
+
+Leg related (Description.as):
+#Legs are special. Since legs can widely vary, from bipedal to tauric to serpentine, etc, all references to a player's legs need to be parsed out.
+legDesc(1-11) - Noun for the part of the leg. The list below gives the "normal" form of the word, which will be translated into whatever is necessary for the appropriate body.
+  1 - leg
+  2 - legs
+  3 - thigh
+  4 - thighs
+  5 - knee
+  6 - knees
+  7 - ankle
+  8 - ankles
+  9 - foot
+  10 - feet
+  11 - pluralizing verb is necessary, such as "break legs" vs "breaks tail"
+legVerb(1-5) - Verb/adverb for what the legs are doing, adjusting based on the appropriate body. Below is list of default. More will be added as necessary.
+  1 - spreading
+  2 - spread wide
+  3 - spread
+  4 - clench
+  5 - straddling
+legWhere(1-2) - Adverb for where in relation to legs something happens. This is pretty annoying.
+  1 - Where the crotch is located ('between' for bipedal, 'behind' for taur).
+  2 - Going between the legs in general ('between' for legs, 'around' for tail?).
+legPlural(1-2) - Other plurals for leg-related stuff. Below is list of default (multiple legs vs single tail).
+  1 - '' (no s for pluraling)
+  2 - 'are'
+
+Genital plurals (Descriptions.as):
+plural(1-16) - Nouns, verbs, letters to attach to other words, all based on whether there are single or multiple cocks or vags.
+  1 - 's' for multiple cocks.
+  2 - 's' for multiple vaginas.
+  3 - 's' for single cock ('jerks your cock' vs 'jerk your cocks')
+  4 - 's' for single vagina
+  5 - 'its' vs 'their' for cock
+  6 - 'its' vs 'their' for vagina
+  7 - it's vs they're for cock
+  8 - it's vs they're for vagina
+  9 - 'it' vs 'them' for cock
+  10 - 'it' vs 'them' for vagina
+  11 - 'it' vs 'they' for cock
+  12 - 'it' vs 'they' for vagina
+  13 - 'is' vs 'are' for cock
+  14 - 'is' vs 'are' for vagina
+  15 - 'es' for multiple cocks (I don't remember what words require this)
+  16 - 'y' vs 'ies' for vaginas ('pussy' vs 'pussies')
+
+oneYour(1-2) - 'your' vs 'one of your' when referencing a single cock/vagoo (so you don't have to deal with too much plural silliness by focusing on one). 1 = cocks. 2 = vaginas.
+
+
+
