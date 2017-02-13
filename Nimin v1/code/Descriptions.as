@@ -537,50 +537,53 @@ function hipDesc():String{
 
 function bellyDesc():String{
 	var chance:int = percent();
-	var tempBelly:int = (pregnancyTime/10 + vagBellyMod/3 + bellyMod/5)*60/tallness;
+	var tempBelly:float = totalWaist()/baseWaist();
+
 	var tempStr:String = "BELLY ERROR "+(tempBelly);
 
-	if (pregnancyTime > bellyMod) {
-		if (tempBelly <= 2) { tempStr = "flat"; }
-		else if (tempBelly <= 4) { tempStr = "hardly noticeable"; }
-		else if (tempBelly <= 7) { tempStr = "protruding"; }
-		else if (tempBelly <= 11) { tempStr = "swollen"; }
-		else if (tempBelly <= 14) { tempStr = "cradleable"; }
-		else if (tempBelly <= 19) { tempStr = "unbalancing"; }
-		else if (tempBelly <= 24) { tempStr = "huggable"; }
-		else if (tempBelly <= 30) { tempStr = "path-crowding"; }
-		else if (tempBelly <= 36) { tempStr = "larger-than-you"; }
-		else if (tempBelly <= 42) { tempStr = "ground-dragging"; }
-		else if (tempBelly <= 49) { tempStr = "view-blocking"; }
-		else if (tempBelly <= 57) { tempStr = "impossibly huge"; }
-		else if (tempBelly <= 66) { tempStr = "bed-sized"; }
-		else if (tempBelly <= 76) { tempStr = "portable-apartment"; }
+	if (waistFromPregnancy() > waistFromFat()){
+		if (tempBelly <= 1.125) { tempStr = "flat"; }
+		else if (tempBelly <= 1.2) { tempStr = "hardly noticeable"; }
+		else if (tempBelly <= 1.3) { tempStr = "slightly bulging"; }
+		else if (tempBelly <= 1.45) { tempStr = "obviously swollen"; }
+		else if (tempBelly <= 1.66) { tempStr = "significantly protruding"; }
+		else if (tempBelly <= 2) { tempStr = "cradleable"; }
+		else if (tempBelly <= 2.4) { tempStr = "huggable"; }
+		else if (tempBelly <= 2.9) { tempStr = "unbalancing"; }
+		else if (tempBelly <= 3.6) { tempStr = "too-large-to-reach-around"; }
+		else if (tempBelly <= 4.5) { tempStr = "knee-knocking"; }
+		else if (tempBelly <= 6) { tempStr = "path-clearing"; }
+		else if (tempBelly <= 8) { tempStr = "ground-scraping"; }
+		else if (tempBelly <= 11) { tempStr = "view-blocking"; }
+		else if (tempBelly <= 15) { tempStr = "double-your-height"; }
+		else if (tempBelly <= 20) { tempStr = "room-sized"; }
 		else { tempStr = "breeding-factory"; }
 
-		if (chance <= 50 && tempBelly > 11) {	tempStr += " pregnant";	}
+		if (chance <= 50 && tempBelly > 11) {	tempStr += " pregnant-looking";	}
 		else if (tempBelly > 11) { tempStr += " gravid"; }
 	}
-
 	else {
-		if (tempBelly <= 2) { tempStr = "flat"; }
-		else if (tempBelly <= 4) { tempStr = "hardly noticeable"; }
-		else if (tempBelly <= 7) { tempStr = "chubby"; }
-		else if (tempBelly <= 11) { tempStr = "porky"; }
-		else if (tempBelly <= 14) { tempStr = "multi-rolled"; }
-		else if (tempBelly <= 19) { tempStr = "pillow-like"; }
-		else if (tempBelly <= 24) { tempStr = "morbidly obese"; }
-		else if (tempBelly <= 30) { tempStr = "bed-like"; }
-		else if (tempBelly <= 36) { tempStr = "fat-encompassing"; }
-		else if (tempBelly <= 42) { tempStr = "item-losing"; }
-		else if (tempBelly <= 49) { tempStr = "almost spherical"; }
-		else if (tempBelly <= 57) { tempStr = "limb-engulfing"; }
-		else if (tempBelly <= 66) { tempStr = "blob-like"; }
-		else if (tempBelly <= 76) { tempStr = "inhumanly large"; }
+		if (tempBelly <= 1.125) { tempStr = "flat"; }
+		else if (tempBelly <= 1.2) { tempStr = "chubby"; }
+		else if (tempBelly <= 1.3) { tempStr = "porky"; }
+		else if (tempBelly <= 1.45) { tempStr = "multi-rolled"; }
+		else if (tempBelly <= 1.66) { tempStr = "pillow-like"; }
+		else if (tempBelly <= 2) { tempStr = "morbidly obese"; }
+		else if (tempBelly <= 2.4) { tempStr = "bed-like"; }
+		else if (tempBelly <= 2.9) { tempStr = "fat-encompassing"; }
+		else if (tempBelly <= 3.6) { tempStr = "item-losing"; }
+		else if (tempBelly <= 4.5) { tempStr = "bed-sized"; }
+		else if (tempBelly <= 6) { tempStr = "impossibly large"; }
+		else if (tempBelly <= 8) { tempStr = "blob-like"; }
+		else if (tempBelly <= 11) { tempStr = "limb-engulfing"; }
 		else { tempStr = "gigantic blubbery mass of"; }
 
-		if (chance <= 50  && tempBelly > 11) { tempStr += " jiggly"; }
-		else if (tempBelly > 11) { tempStr  += " meaty"; }
+		if (chance <= 50  && tempBelly > 1.45) { tempStr += " jiggly"; }
+		else if (tempBelly > 1.45) { tempStr  += " meaty"; }
+
 	}
+
+
 	return tempStr;
 }
 

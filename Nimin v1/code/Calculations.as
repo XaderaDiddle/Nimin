@@ -57,7 +57,10 @@ tallness - Total height in inches.
 
 function trueCockSize():Number { return (cockSize*cockSizeMod); }
 
-function trueVagSize():Number { return (vagSize*vagSizeMod); }
+function trueVagSize():Number { 
+	if (lust > 30) { return (vagSize*vagSizeMod); }
+	else { return (vagSize*vagSizeMod/2); }
+}
 
 function vagLimit():Number { return (vagSize*(vagSizeMod + vagElastic) + vagSize*vagSizeMod*moistCalc(2)/10); }
 

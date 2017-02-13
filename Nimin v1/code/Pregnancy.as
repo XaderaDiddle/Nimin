@@ -88,19 +88,36 @@ function baseWaist():float{
 }
 
 function normalWaist():float{
-	return fat calculation here;
+	return baseWaist + bellyMod/10;
+}
+
+function vaginaWaist():float {
+	var initialVag:float = tallness/4;
+	var vagGirth:float = trueVagSize - initialVag;
+
+	if (vagGirth > 0) {
+		return Math.floor(10*(2*Math.PI*Math.pow((3*vagGirth/(8*Math.PI)),1/3)))/10;
+	}
+	else { return 0; }
 }
 
 function pregnancyWaist():float{
-	return Math.floor(10*(2*Math.PI*Math.pow((totalPregnancyWeight()/0.01179*Math.PI),1/3)))/10;
+	var density:float = 0.008
+	return Math.floor(10*(2*Math.PI*Math.pow((3*totalPregnancyWeight()/(4*density*Math.PI)),1/3)))/10;
+	//return Math.floor(10*(2*Math.PI*Math.pow((totalPregnancyWeight()/0.01179*Math.PI),1/3)))/10;
 }
 
 function totalWaist():float{
-	return Math.floor(10*(normalWaist()+pregnancyWaist()*pregnancyWaist()/(normalWaist()+pregnancyWaist())))/10;
+	var genitalWaist:float = (vaginaWaist() + pregnancyWaist()*pregnancyWaist()/(vaginaWaist() + pregnancyWaist()));
+	return Math.floor(10*(normalWaist()+genitalWaist()*genitalWaist()/(genitalWaist()+genitalWaist())))/10;
 }
 
 function waistFromPregnancy():float{
 	return (totalWaist() - normalWaist());
+}
+
+function waistFromFat():float{
+	return (normalWaist() - baseWaist());
 }
 
 function setBirthTime(pregnancyType:int):int{
