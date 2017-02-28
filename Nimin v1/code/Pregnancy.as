@@ -107,8 +107,11 @@ function pregnancyWaist():float{
 	//return Math.floor(10*(2*Math.PI*Math.pow((totalPregnancyWeight()/0.01179*Math.PI),1/3)))/10;
 }
 
+function genitalWaist():float {
+	return Math.floor(10*(vaginaWaist() + pregnancyWaist()*pregnancyWaist()/(vaginaWaist() + pregnancyWaist())))/10;
+}
+
 function totalWaist():float{
-	var genitalWaist:float = (vaginaWaist() + pregnancyWaist()*pregnancyWaist()/(vaginaWaist() + pregnancyWaist()));
 	return Math.floor(10*(normalWaist()+genitalWaist()*genitalWaist()/(genitalWaist()+genitalWaist())))/10;
 }
 

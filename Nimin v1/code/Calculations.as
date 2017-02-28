@@ -84,6 +84,28 @@ function moistCalc(which:int):Number {
 	return tempNum;
 }
 
+function chestSize():float{
+	var bodyMultiplier:float = body/200;
+	if (bodyMultiplier > .4) { bodyMultiplier = .4;	}
+	return Math.floor(10*(tallness * (0.46 + bodyMultiplier)))/10;
+}
+
+function bustSize():float {
+	var bustMultiplier:float = 0.5;
+	if (boobTotal == 8) { bustMultiplier = 0.4; }
+	if (boobTotal == 10) { bustMultiplier = 0.35; }
+
+	return Math.floor(10*breastSize*bustMultiplier)/10;
+}
+
+function totalBust():float{
+	return chestSize()+bustSize();
+}
+
+function bustRatio():float{
+	return totalBust()/chestSize();
+}
+
 
 function cumAmount():int{
 	var tempNum:int = 0;

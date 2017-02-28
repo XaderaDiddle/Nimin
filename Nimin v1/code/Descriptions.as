@@ -223,33 +223,53 @@ function faceDesc():String{
 
 function boobDesc():String{
 	var chance:int = percent();
-	var tempStr:String = "BOOB ERROR "+breastSize;
+	var bust:float = bustRatio();
+	var tempStr:String = "BOOB ERROR "+bust;
+
 	if (chance <= 100){
-		if (breastSize <= 0){ tempStr = "flat"; }
-		if (breastSize > 0 && breastSize <= 2){ tempStr = "nearly flat"; }
-		if (breastSize > 2 && breastSize <= 8){ tempStr = "noticeable"; }
-		if (breastSize > 8 && breastSize <= 20){ tempStr = "large"; }
-		if (breastSize > 20 && breastSize <= 40){ tempStr = "huge"; }
-		if (breastSize > 40 && breastSize <= 76){ tempStr = "humongous"; }
-		if (breastSize > 76 && breastSize <= 146){ tempStr = "massive"; }
-		if (breastSize > 146 && breastSize <= 210){ tempStr = "gargantuan"; }
-		if (breastSize > 210 && breastSize <= 280){ tempStr = "tremendous"; }
-		if (breastSize > 280 && breastSize <= 560){ tempStr = "colossal"; }
-		if (breastSize > 560){ tempStr = "ridiculously huge"; }
+		if (bust <= 1.03){ tempStr = "flat"; }
+		else if (bust <= 1.07){ tempStr = "nearly flat"; }
+		else if (bust <= 1.125){ tempStr = "perky"; }
+		else if (bust <= 1.2){ tempStr = "bouncy"; }
+		else if (bust <= 1.3){ tempStr = "jiggly"; }
+		else if (bust <= 1.45){ tempStr = "swinging"; }
+		else if (bust <= 1.66){ tempStr = "swaying"; }
+		else if (bust <= 2){ tempStr = "huge"; }
+		else if (bust <= 2.4){ tempStr = "impressive"; }
+		else if (bust <= 2.9){ tempStr = "immense"; }
+		else if (bust <= 3.6){ tempStr = "humongous"; }
+		else if (bust <= 4.5){ tempStr = "massive"; }
+		else if (bust <= 6){ tempStr = "enormous"; }
+		else if (bust <= 8){ tempStr = "gigantic"; }
+		else if (bust <= 11){ tempStr = "gargantuan"; }
+		else if (bust <= 15){ tempStr = "tremendous"; }
+		else if (bust <= 20){ tempStr = "colossal"; }
+		else if (bust <= 30){ tempStr = "monstrous"; }
+		else { tempStr = "kaiju"; }
 	}
 	if (chance > 50){
-		if (breastSize <= 0){ tempStr = ""; }
-		if (breastSize > 0 && breastSize <= 2){ tempStr = "tiny"; }
-		if (breastSize > 2 && breastSize <= 4){ tempStr = "palmable"; }
-		if (breastSize > 8 && breastSize <= 20){ tempStr = "ample"; }
-		if (breastSize > 20 && breastSize <= 40){ tempStr = "head-sized"; }
-		if (breastSize > 40 && breastSize <= 76){ tempStr = "hefty"; }
-		if (breastSize > 76 && breastSize <= 146){ tempStr = "beachball-sized"; }
-		if (breastSize > 146 && breastSize <= 210){ tempStr = "normally back-breaking"; }
-		if (breastSize > 210 && breastSize <= 280){ tempStr = "view-obscuring"; }
-		if (breastSize > 280 && breastSize <= 560){ tempStr = "bed-sized"; }
-		if (breastSize > 560){ tempStr = "road-filling"; }
+		if (bust <= 1.03){ tempStr = ""; }
+		else if (bust <= 1.07){ tempStr = "tiny"; }
+		else if (bust <= 1.125){ tempStr = "palmable"; }
+		else if (bust <= 1.2){ tempStr = "hand-filling"; }
+		else if (bust <= 1.3){ tempStr = "ample"; }
+		else if (bust <= 1.45){ tempStr = "arm-filling"; }
+		else if (bust <= 1.66){ tempStr = "head-sized"; }
+		else if (bust <= 2){ tempStr = "belly-resting"; }
+		else if (bust <= 2.4){ tempStr = "belly-covering"; }
+		else if (bust <= 2.9){ tempStr = "hip-reaching"; }
+		else if (bust <= 3.6){ tempStr = "thigh-hitting"; }
+		else if (bust <= 4.5){ tempStr = "knee-bouncing"; }
+		else if (bust <= 6){ tempStr = "floor-touching"; }
+		else if (bust <= 8){ tempStr = "ground-dragging"; }
+		else if (bust <= 11){ tempStr = "bed-sized"; }
+		else if (bust <= 15){ tempStr = "road-clearing"; }
+		else if (bust <= 20){ tempStr = "room-filling"; }
+		else if (bust <= 30){ tempStr = "building-sized"; }
+		else { tempStr = "mobile-landmark"; }
 	}
+
+
 	return tempStr;
 }
 
@@ -448,9 +468,9 @@ function nipDesc():String{
 		if (nippleSize > 15 && nippleSize <= 30){ tempStr = "teat-like "; }
 		if (nippleSize > 30 && nippleSize <= 50){ tempStr = "cock-like "; }
 		if (nippleSize > 50 && nippleSize <= 100){ tempStr = "horsecock-like "; }
-		if (nippleSize > 100 && nippleSize <= 140){ tempStr = "arm-length "; }
-		if (nippleSize > 140 && nippleSize <= 300){ tempStr = "street-clearing "; }
-		if (nippleSize > 300){ tempStr = "obscene "; }
+		if (nippleSize > 100 && nippleSize <= 140){ tempStr = "arm-sized "; }
+		if (nippleSize > 140 && nippleSize <= 300){ tempStr = "pole-like "; }
+		if (nippleSize > 300){ tempStr = "tree-sized "; }
 		if (nipType == 2 && lust < 50) { tempStr = "inverted ";	}
 	}
 	if (chance > 50){
@@ -537,7 +557,7 @@ function hipDesc():String{
 
 function bellyDesc():String{
 	var chance:int = percent();
-	var tempBelly:float = totalWaist()/baseWaist();
+	var tempBelly:float = waistRatio();
 
 	var tempStr:String = "BELLY ERROR "+(tempBelly);
 

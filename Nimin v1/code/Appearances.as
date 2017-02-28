@@ -29,7 +29,7 @@ function appearanceGo():void{
 	else if (dominant == 9) { tempStr += " Pointy talons grow from the tips of your fingers, more menacing than normal nails but not useful enough to be a threat."; }
 	if (legType >= 1000)	{
 		tempStr += " From your waist down extends an almost second body, complete with a second belly and set of legs, standing on four "+legDesc(10)+". 'Taur' tends to be the term for such a being, with your crotch and rump far back at the end of the continued body."; 
-		if (legType == 1001) { tempStr += " This second body is covered in white fur with large black patches, and your ass is squared off a bit from the bulky back hips.";	}
+		if (legType == 1001) { tempStr += " This second body is covered in white fur with large black patches, and your ass is squared off a bit from the bulky rear hips.";	}
 		if (legType == 1002) { tempStr += " This second body matches the "+skinDesc()+" of your upper half, with a thin and lithe torso, looking somewhat like a humans and not exactly made for riding but makes up for the frailness with plantigrade feet that easily support yourself, even though they aren't the speediest.";	}
 	}
 	if (checkItem (102) || legType == 1001){ tempStr += " Keratin extends from your combined toes like hooves, your ankle angled upward and high up like a second backwards knee, making you walk on the tips of your hooved toes with a clap against the ground every step.";	}
