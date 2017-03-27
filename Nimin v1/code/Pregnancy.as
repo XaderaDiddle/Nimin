@@ -61,8 +61,8 @@ function maxPregTime(pregnancyType:int):int{
 function birthTime(pregnancyType:int):int{
 	var tempInt:int = 0;
 	if (setBirthTime(pregnancyType) > 0) { return setBirthTime(pregnancyType); }
-	else if (percent() > 50) { tempInt = Math.floor((maxPregTime(baseBabyWeight(pregnancyType)) + percent()/500*maxPregTime(baseBabyWeight(pregnancyType))); }
-	else { tempInt = Math.floor((maxPregTime(baseBabyWeight(pregnancyType)) - percent()/1000*maxPregTime(baseBabyWeight(pregnancyType))); }
+	else if (percent() > 50) { tempInt = Math.floor((maxPregTime(baseBabyWeight(pregnancyType)) + percent()/500*maxPregTime(baseBabyWeight(pregnancyType)))); }
+	else { tempInt = Math.floor((maxPregTime(baseBabyWeight(pregnancyType)) - percent()/1000*maxPregTime(baseBabyWeight(pregnancyType)))); }
 	return TempInt;
 }
 
@@ -254,7 +254,7 @@ function doBirth(i:int, birthCount:int):void{
 		if (babySize < tallness/32) { textLP(" There's a slight pressure under your "+bellyDesc()+" belly, but you're almost unsure if the labor has actually begun, it feels so mild. It's not until the body starts entering your passage that you know you're really giving birth."); }
 		else if (babySize < tallness/16){ textLP(" A growing pressure builds under your "+bellyDesc()+" belly. The sensation isn't so powerful that you feel caught off guard, but it's strong enough to make you glad you squat. The position gives you plenty more leverage to push the body into your passage."); }
 		else if (babySize < tallness/8) { textLP(" An intense pressure builds under your "+bellyDesc()+" belly, making you swoon a little as you squat. You brace yourself, breathing steadily to maintain your composure against the powerful throbs, and gasp a little as the body pushes into your passage."); }
-		else if (babySize < tallness/4) { textLP(" A tremendous pressure builds under your "bellyDesc()+" belly. You nearly fall over just from the powerful sensations. Your breathing becomes heavy and frequent, doing all you can to remain focused and groaning as the body pushes into your passage."); 	}
+		else if (babySize < tallness/4) { textLP(" A tremendous pressure builds under your "+bellyDesc()+" belly. You nearly fall over just from the powerful sensations. Your breathing becomes heavy and frequent, doing all you can to remain focused and groaning as the body pushes into your passage."); 	}
 		else if (babySize < tallness/2) { textLP(" Your eyes go wide as the pressure sinks to the bottom of your "+bellyDesc()+" belly like an anvil inside. You brace yourself from falling over, barely taking breaths as your face contorts in amazement and shock at the massive weight within. A low groan at the base of your throat grows into a howl as the body within pushes into your passage.");	}
 		else if (babySize < tallness) { textLP(" You quake in place as a massive pressure throbs below your "+bellyDesc()+" belly. The extreme sensation of weight within leaves you in a breathless stupor. How did something so big grow inside of you?! The only breath you manage to take is the one you suck in to shout loudly in surprise as the giant body pushes out into your passage.");	}
 		else { textLP(" You nearly black out from the impossible amount of pressure dropping like a boulder below your "+bellyDesc()+" belly. It's an amazingly powerful sensation that constantly threatens to knock you off balance. How such a thing managed to grow inside of you is astounding and this moment is one you'll never be able to forget. You merely squeak meekly as the massive body manage to push into your passage."); }
