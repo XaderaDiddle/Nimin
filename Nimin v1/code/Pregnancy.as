@@ -112,7 +112,7 @@ function genitalWaist():float {
 }
 
 function totalWaist():float{
-	return Math.floor(10*(normalWaist()+genitalWaist()*genitalWaist()/(genitalWaist()+genitalWaist())))/10;
+	return Math.floor(10*(normalWaist()+genitalWaist()*genitalWaist()/(normalWaist()+genitalWaist())))/10;
 }
 
 function waistFromPregnancy():float{
@@ -121,6 +121,10 @@ function waistFromPregnancy():float{
 
 function waistFromFat():float{
 	return (normalWaist() - baseWaist());
+}
+
+function waistRatio():float{
+	return totalWaist()/baseWaist();
 }
 
 function setBirthTime(pregnancyType:int):int{

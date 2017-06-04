@@ -84,6 +84,14 @@ function moistCalc(which:int):Number {
 	return tempNum;
 }
 
+function breastDimension():float{
+	var base_weight:float = 0.25;
+	var r:float = Math.pow((base_weight * breastSize / 2 * 7),1.25/3);
+	var combined:float = 5*r;
+	return Math.floor(10*(chestSize() + (combined*combined/(chest() + combined))))/10;
+}
+
+
 function chestSize():float{
 	var bodyMultiplier:float = body/200;
 	if (bodyMultiplier > .4) { bodyMultiplier = .4;	}
@@ -91,11 +99,11 @@ function chestSize():float{
 }
 
 function bustSize():float {
-	var bustMultiplier:float = 0.5;
-	if (boobTotal == 8) { bustMultiplier = 0.4; }
-	if (boobTotal == 10) { bustMultiplier = 0.35; }
+	var bustMultiplier:float = 1.0;
+	if (boobTotal == 8) { bustMultiplier = 0.8; }
+	if (boobTotal == 10) { bustMultiplier = 0.7; }
 
-	return Math.floor(10*breastSize*bustMultiplier)/10;
+	return Math.floor(10*breastDimension()*bustMultiplier)/10;
 }
 
 function totalBust():float{
