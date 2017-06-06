@@ -77,7 +77,7 @@ function doForest():void{
 						doLust(-20, 0);
 						i++;
 					}
-					if (chance == 7 && breastSize > 2) {
+					if (chance == 7 && bustRatio() > 1.07) {
 						textLP("your breasts inflate, nearly tearing through your "+clothesTop()+".");
 						breastSize += Math.floor(percent()/20+1);
 						i++;
@@ -117,7 +117,7 @@ function doForest():void{
 			hrs = 1;
 			doEnd();
 		}
-		else if (breastSize < 6){
+		else if (bustRatio() <= 1.07){
 			textLP("\r\rPeach-colored tentacles lash out at you from the tree-branches above, catching you by surprise. They flail around your chest, feeling about and groping it roughly.\r\rHowever, the tentacles seem to be uninterested and disappear as quick as they came, leaving you with a rather tender chest and wasted time.");
 			doHP(-Math.floor((percent()/10)+2));
 			hrs = 1;

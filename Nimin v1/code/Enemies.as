@@ -632,7 +632,7 @@ function doGetRaped():void{
 			}
 			textLP(" Her hands grope about herself in ecstasy at the sensation within, letting out a succulent shout as she climaxes. Her walls clamp around your milk-bag, sucking it in and tugging it along with her as her bouncing only grows more enthused.\r\rYou begin to enjoy the sensation yourself, an outlet for your lust, but quickly realize something is odd as the bunny-girl's pussy seems to only be growing tighter and tighter. She slowly lifts from your body as your udder pushes her away, growing larger and larger within her until she's hardly straddling your teats! When you finally manage to reach orgasm, her large feet smack against the bag as she realizes how large you've become, propelling herself away. While you come close to returning to your full size with your body still tingling, she dashes away, a hand still jerking at her clit as she goes.");
 		}
-		else if (breastSize > 300) {
+		else if (bustSize() > 300 && bustRatio() > 2.4) {
 			textL("A smile crosses the bunny-girl's face as you fall before her. Eyeing your "+boobDesc()+" tits through your "+clothesTop()+", an idea seems to dawn upon her and she ducks down to releas your relatively massive mammaries. Then she stands and hovers over you, her fingers spreading her large snatch wide. Her honey drizzles down around your breasts with the rest of her swiftly bearing down after it. She lets out a loud sweet moan as she engulfs your "+boobDesc()+" mounds, letting the fleshy balloons fill her. Her velvety puffy folds soon hug the rest of your body, covering you like warm wet blankets, and your face is buried by her clit. It's a rather comforting position, somewhat relaxing, that only lasts for a few seconds...\r\rHer strong legs quickly kick up, sending her skyward, before plunging back down upon you again. Her movements are so swift and powerful, your whole body is lifted by your stretching breasts before being slammed back into the ground with the giant little bunny bum crashing back down upon you.");
 			if (lactation > 0) {
 				textLP(" The supple massage upon your milky mounds causes your "+nipDesc()+"nipples to spray warm milk profusely into her belly.");
@@ -1135,7 +1135,7 @@ function enemyAttack():void{
 		}
 		else if (attack > 85 && eLust >= 70){
 			textLP("\r\rHis pointy, carrot-like prick standing from his fuzzy sheath and dripping with pre, he decides to lunge at you.");
-			if (breastSize >= 100) { textLP(" He hops up to your "+boobDesc()+" chest and abruptly turns around. Bending forward, his fluffy tail brushes over your face as his rump slips by. His balls rest upon your head, his sheath pressing into your face. You can feel his slick prick slip into your cleavage, the pointy tip easily drilling a path between your breasts. Within seconds the rabbity fellow begins hopping up and down upon your chest with fervor, squeezing the sides of your tits to crush his cock. You can feel his pulse beat strongly through his sheath and very soon you feel his muscles tense again and again. He lets out a groan as your "+clothesTop()+" floods with hot spunk, spurting between your flesh with a naughty sound and leaving your front completly swamped in a warm, sticky mess.\r\rThe whole thing taking less than a minute, he hops off of you, slapping a strand of cum across your face before returning to the battle, his lust somewhat sated."); }
+			if (bustSize() >= 100 && bustRatio() > 2.4) { textLP(" He hops up to your "+boobDesc()+" chest and abruptly turns around. Bending forward, his fluffy tail brushes over your face as his rump slips by. His balls rest upon your head, his sheath pressing into your face. You can feel his slick prick slip into your cleavage, the pointy tip easily drilling a path between your breasts. Within seconds the rabbity fellow begins hopping up and down upon your chest with fervor, squeezing the sides of your tits to crush his cock. You can feel his pulse beat strongly through his sheath and very soon you feel his muscles tense again and again. He lets out a groan as your "+clothesTop()+" floods with hot spunk, spurting between your flesh with a naughty sound and leaving your front completly swamped in a warm, sticky mess.\r\rThe whole thing taking less than a minute, he hops off of you, slapping a strand of cum across your face before returning to the battle, his lust somewhat sated."); }
 			else if (butt >= 50) { 
 				textLP(" He hops behind you, leaning down to grab the cheeks of your "+buttDesc()+" ass and making the cleavage in your "+clothesBottom()+" much deeper. His slick prick slips into the crack and in seconds he's fervently humping through your rear. Very quickly, he lets out a groan behind you as his cock shudders in your bum, ");
 				if (tail > 1){ textLP("his hand yanking your "+tailDesc()+" high,"); }
@@ -1313,7 +1313,7 @@ function enemyAttack():void{
 	//Succubus
 	if (enemyID == 309) {
 		if (attack <= 25) {
-			if (breastSize < 8) {
+			if (bustRatio() < 1.07) {
 				textLP("\r\r\"Hmm... Your chest isn't quite up to par~\" Her wings flutter as she darts about and you feel her spaded tail graze across your "+boobDesc()+" chest. When she stops back where she started, one of her vials glows slightly and she smiles. You look down to see why and notice you chest has become more swollen, jiggling slightly!");
 				boobChange(1);
 			}

@@ -144,7 +144,7 @@ function doGender():void {
 		if (buttonChoice == 7){ gender = 3;	}
 		if (gender == 1){
 			cockSize = 12;
-			ballSize = 3;
+			ballSize = 4;
 			balls = 2;
 			cockTotal = 1;
 			cockMoist = 1;
@@ -276,7 +276,7 @@ function bodyType():void{
 				body = 15;
 				hips = 7;
 				butt = 6;
-				breastSize = 2;
+				breastSize = 4;
 				nippleSize = 2;
 				tallness += 60+Math.floor(percent()/10);
 				sensitivity += 1;
@@ -294,7 +294,7 @@ function bodyType():void{
 				libido += 2;
 				cockSize = 6;
 				cockMoist = 1;
-				ballSize = 1;
+				ballSize = 2;
 				stats(0,0,0,0);
 				doStartingDescription();
 			}
@@ -358,7 +358,7 @@ function bodyType():void{
 				hips = 4;
 				butt = 4;
 				tallness += 68+Math.floor(percent()/10);
-				breastSize = 6;
+				breastSize = 5;
 				nippleSize = 6;
 				strength += 1;
 				stats(0,0,0,0);
@@ -402,8 +402,8 @@ function bodyType():void{
 				clitSize = 1;
 				vagMoist = 1;
 				vulvaSize = 1;
-				breastSize = 2;
-				nippleSize = 2;
+				breastSize = 1;
+				nippleSize = 1;
 				stats(0,0,0,0);
 				doStartingDescription();
 			}

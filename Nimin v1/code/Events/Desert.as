@@ -10,16 +10,16 @@ function doDesert():void{
 					textL("You munch on the sandvich, enjoying its meaty goodness, letting it fill your stomach, so moist and delicious. However, an odd gurgling inside makes you worry...");
 					if (boobTotal == 2)	{
 						textLP("\r\rYour chest, close beneath your nipples, begins to tickle. A new pair of sensitive areolas form amongst your "+skinDesc()+", creating an extra row of breasts beneath the originals.");
-						if (breastSize > 4)	{ textLP(" The new nipples protrude as fleshy mounds form from beneath them. The new boobs wobble as they grow to the same size of your original pair, lifting the originals slightly with their girth.	When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
+						if (bustRatio > 1.03)	{ textLP(" The new nipples protrude as fleshy mounds form from beneath them. The new boobs wobble as they grow to the same size of your original pair, lifting the originals slightly with their girth.	When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
 					}
 					if (boobTotal == 6)	{
 						textLP("\r\rYour belly tickles");
-						if (breastSize > 4){ textLP(", growing much lighter"); }
+						if (bustRatio() > 1.03){ textLP(", growing much lighter"); }
 						textLP(". Checking, you catch your bottom set of nipples disappear flat into your "+skinDesc()+", while your middle pair swells to match the first, leaving you with two sets of equally sized breasts, the top resting upon the bottom.");
 					}
 					if (boobTotal == 8) {
 						textLP("\r\rYour belly tickles");
-						if (breastSize > 4){ textLP(", growing much lighter"); }
+						if (bustRatio() > 1.03){ textLP(", growing much lighter"); }
 						textLP(". Checking, you catch your two lowest sets of nipples disappear flat into your "+skinDesc()+", while the other two pairs swell slightly, leaving you with two sets of breasts larger than before.");
 					}
 					boobTotal = 4;
@@ -263,7 +263,7 @@ function doDesert():void{
 			else if (attireTop == 6) {
 				textLP(" However, the latex suit you wear helps insulate you, keeping you plenty warm.");
 			}
-			else if (breastSize > 25 || (boobTotal > 2 && breastSize > 17))	{
+			else if (bustRatio() > 1.45 || (boobTotal > 2 && bustRatio() > 1.3))	{
 				textLP(" However, your masses of plentiful breast-flesh provides enough warmth to not freeze.");
 			}
 			else if (pregnancyTime > 200) {

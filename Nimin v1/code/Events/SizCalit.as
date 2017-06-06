@@ -433,7 +433,7 @@ function doSizCalit():void{
 				doListen = function():void{
 					if (buttonChoice == 6){
 						textL("You nod, saying it would be nice. She grins and grabs your hand, pulling you along with her back to the hut.\r\rHer mother spots the two of you coming and looks at you curiously, wondering why you came along.\r\r\"My fwiend would like a bath too, Mommy.\"\r\r");
-						if (cockSize*cockSizeMod > 96 || ballSize*balls > 120 || breastSize > 120 || tallness > 84 || udderSize > 60) {
+						if (cockSize*cockSizeMod > 96 || ballSize*balls > 120 || bustSize() > 120 || tallness > 84 || udderSize > 60) {
 							textLP("Her mother eyes your rather large proportions. \"Umm... I'm sorry, but I don't think I could possibly take care of you myself. Maybe if I had a few friends over, we could, but... I simply don't have the ability.\"\r\rLila looks a bit disappointed that you couldn't join, but you shrug it off and say it's quite alright. You leave the two to take care of themselves and you head back to your own thing.");
 							hrs = 2;
 							doEnd();

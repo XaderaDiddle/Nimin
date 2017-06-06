@@ -46,7 +46,7 @@ function doJungle():void{
 			hrs = 1;
 			doEnd();
 		}
-		else if (breastSize < 6){
+		else if (bustRatio() <= 1.07){
 			textLP("\r\rPeach-colored tentacles lash out at you from the tree-branches above, catching you by surprise. They flail around your chest, feeling about and groping it roughly.\r\rHowever, the tentacles seem to be uninterested and disappear as quick as they came, leaving you with a rather tender chest and wasted time.");
 			doHP(-Math.floor((percent()/10)+2));
 			hrs = 1;

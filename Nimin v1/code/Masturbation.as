@@ -72,7 +72,7 @@ function doCockMasturbate():void{
 					if ((cockSize*cockSizeMod) > (tallness/3.75) && (cockSize*cockSizeMod) <= (tallness*1.2)) { 
 						textLP("hands around your "+whichCock+" , "); 
 						if ((cockSize*cockSizeMod) > (tallness/1.5)){
-							if (breastSize > 4)	{ textLP("hugging it between your "+boobTotal+" breasts, ");	}
+							if (bustRatio() > 1.07)	{ textLP("hugging it between your "+boobTotal+" breasts, ");	}
 							else { textLP("hugging it to your chest, "); }
 						}
 						textLP("pounding your fists up and down its length.");

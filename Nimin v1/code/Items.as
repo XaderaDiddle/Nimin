@@ -3317,7 +3317,7 @@ function doItemUse(ID:int):void {
 
 		if (boobTotal == 2)	{
 			textLP("\r\rYour chest, close beneath your nipples, begins to tickle. A new pair of sensitive areolas form amongst your "+skinDesc()+", creating an extra row of breasts beneath the originals.");
-			if (breastSize > 4)	{ textLP(" The new nipples protrude as fleshy mounds form from beneath them. The new boobs wobble as they grow to the same size of your original pair, lifting the originals slightly with their girth.	When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
+			if (bustRatio() > 1.07)	{ textLP(" The new nipples protrude as fleshy mounds form from beneath them. The new boobs wobble as they grow to the same size of your original pair, lifting the originals slightly with their girth.	When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
 			boobTotal = 4;
 			fourBoobAffinity = 100;
 			twoBoobAffinity = 0;
@@ -3325,7 +3325,7 @@ function doItemUse(ID:int):void {
 
 		else if (boobTotal == 4) {
 			textLP("\r\rYour chest and belly tickle. Two new nipples form amongst your "+skinDesc()+", right below your second pair above your belly, leaving you with three rows of two breasts.");
-			if (breastSize > 4){ textLP(" The nipples protrude as fleshy mounds form beneath them, while your second pair seems to shrink in turn. Breast-flesh wobbles, each row a fraction in size of the one above it. When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
+			if (bustRatio() > 1.07){ textLP(" The nipples protrude as fleshy mounds form beneath them, while your second pair seems to shrink in turn. Breast-flesh wobbles, each row a fraction in size of the one above it. When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
 			boobTotal = 6;
 			sixBoobAffinity = 100;
 			fourBoobAffinity = 0;
@@ -3333,7 +3333,7 @@ function doItemUse(ID:int):void {
 				
 		else if (boobTotal == 6) {
 			textLP("\r\rYour chest and belly tickle. Two new nipples form amongst your "+skinDesc()+", right below your second pair above your belly, leaving you with four rows of two breasts, from chest to your lower belly.");
-			if (breastSize > 4){ textLP(" The lower pairs continue to grow while your top pair shrinks a little, all equalizing in size. When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
+			if (bustRatio() > 1.07){ textLP(" The lower pairs continue to grow while your top pair shrinks a little, all equalizing in size. When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
 			boobTotal = 8;
 			eightBoobAffinity = 100;
 			sixBoobAffinity = 0;
@@ -3341,7 +3341,7 @@ function doItemUse(ID:int):void {
 
 		else if (boobTotal == 8) {
 			textLP("\r\rThe area above your crotch tickles. Two new nipples form amongst your "+skinDesc()+", right below your fourth pair below your belly, leaving you with five rows of two breasts, from your chest to your crotch.");
-			if (breastSize > 4){ textLP(" The lower pairs continue to grow while your top pair shrinks a little, all equalizing in size. When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
+			if (bustRatio() > 1.07){ textLP(" The lower pairs continue to grow while your top pair shrinks a little, all equalizing in size. When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
 			boobTotal = 10;
 			tenBoobAffinity = 100;
 			eightBoobAffinity = 0;

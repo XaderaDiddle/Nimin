@@ -334,7 +334,7 @@ function doDen():void{
 				textLP(" balls slap against your "+buttDesc()+" rump");
 				if (silPreg + pregnancyTime + vagBellyMod > 1000) { textLP(", her pregnant belly bumping against your own,"); }
 				textLP(" with each thrust. Her breasts wobble with her fervor, spraying milk everywhere in tune to her panting as her long tongue lolls from her vulpine muzzle.");
-				if (breastSize > 3)	{ textLP(" Your own chest jiggles as well, your body dragging across the bed from her strength.");	}
+				if (bustRatio() > 1.07)	{ textLP(" Your own chest jiggles as well, your body dragging across the bed from her strength.");	}
 				else if (cockTotal > 0)	{ textLP(" More pre slops across yourself as your "+cockDesc()+" cock"+plural(1)+" bounce around, leaving you rather slick.");	}
 				textLP("\r\rThanks to her generous efforts, you both find yourselves reaching orgasm within minutes. Her body quivers and seizes as it forces a few more loud squishes into your pussy before it explodes within, drenching your insides with thick gooey cum. You shiver in turn,");
 				if (cockTotal > 0) { textLP(" more eruptions gushing from your own rod"+plural(1)+","); }
@@ -615,7 +615,7 @@ function doDen():void{
 					textLP(" balls slap against your "+buttDesc()+" rump");
 					if (silPreg + pregnancyTime + vagBellyMod > 1000) { textLP(", her pregnant belly bumping against your own,"); }
 					textLP(" with each thrust. Her breasts wobble with her fervor, in tune to her panting as her long tongue lolls from her vulpine muzzle.");
-					if (breastSize > 3)	{ textLP(" Your own chest jiggles as well, your body dragging across the bed from her strength.");	}
+					if (bustRatio() > 1.07)	{ textLP(" Your own chest jiggles as well, your body dragging across the bed from her strength.");	}
 					if (silPreg > 100 && cockTotal > 0)	{ textLP(" More pre slops across her pregnant belly as your "+cockDesc()+" cock"+plural(1)+" gently slap it, making her even more aroused from the taut sensitive scales.");	}
 					else if (cockTotal > 0)	{ textLP(" More pre slops across yourself as your "+cockDesc()+" cock"+plural(1)+" bounce around, leaving you rather slick.");	}
 					textLP("\r\rThanks to her generous efforts, you both find yourselves reaching orgasm within minutes. Her body quivers and seizes as it forces a few more loud squishes into your pussy before it explodes within, drenching your insides with thick gooey cum. You shiver in turn,");
