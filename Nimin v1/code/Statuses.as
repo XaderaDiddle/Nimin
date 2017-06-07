@@ -559,11 +559,12 @@ function doStatus(time:int):void{
 	vagBellyChange(0,0);
 
 	//Blue Balls
-	if ((blueBalls+time) > 84 && blueBalls <= 84 && showBalls == true && balls > 0){ 
+	if ((blueBalls+time) > blueBallsCap() && blueBalls <= blueBallsCap() && showBalls == true && balls > 0){ 
 		textLP("\r\rYour "+ballDesc()+" balls feel swollen and heavy within your "+clothesBottom()+". The need to spill your seed makes you a little aroused.");
 		doLust(Math.ceil(ballSize/4), 0);
 	}
 	if (balls > 0) { blueBalls += time; }
+	if (blueBalls > blueBallsCap()) { blueBalls = blueBallsCap(); }
 
 	//Body Oil
 	if (bodyOil > 0){

@@ -118,31 +118,26 @@ function bustRatio():float{
 
 function ballDimension():float {
 	var base_weight:float = 0.005; //Pounds
-	return Math.floor(10*(Math.pow(ballSize*baseWeight*6,1/3)))/10;
+	var totalBS:float =  blueBalls/30 + ballSize;
+
+	return Math.floor(10*(Math.pow(totalBS*baseWeight*6,1/3)))/10;
 }
 
+function ballRatio():float {
+	return ballDimension()*120/tallness;
+}
 
 function cumAmount():int{
-	var tempNum:int = 0;
-	if (blueBalls <= 12){
-		tempNum = (ballSize*(ballSize/2)*balls*cumMod*.5);
-		//1/4x cum amount
-	}
-	if (blueBalls > 12 && blueBalls <= 36){
-		tempNum = (ballSize*(ballSize/2)*balls*cumMod*1);
-		//1/2x cum amount
-	}
-	if (blueBalls > 36 && blueBalls <= 84){
-		tempNum = (ballSize*(ballSize/2)*balls*cumMod*2);
-		//1x cum amount
-	}
-	if (blueBalls > 84){
-		tempNum = (ballSize*(ballSize/2)*balls*cumMod*2.5);
-		//1.25x cum amount
-	}
+	var tempNum = Math.floor((ballSize+blueBalls/30)*balls*cumMod/2);
+
 	blueBalls = 0;
-	tempNum = Math.floor(tempNum);
+
 	return tempNum;
+}
+
+//Max blueBalls from time
+function blueBallsCap():int{
+	return ballSize*15;
 }
 
 function milkAmount(origin:int):int{ 

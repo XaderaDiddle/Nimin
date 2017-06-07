@@ -427,34 +427,47 @@ function cockDesc():String{
 function ballDesc():String{
 	var chance:int = percent();
 	var tempStr:String = "BALLS ERROR "+ballSize;
-	if (chance <= 100){
-		if (ballSize <=1){ tempStr = "tiny"; }
-		if (ballSize > 1 && ballSize <= 3){ tempStr = "small"; }
-		if (ballSize > 3 && ballSize <= 5){ tempStr = "big"; }
-		if (ballSize > 5 && ballSize <= 8){ tempStr = "large"; }
-		if (ballSize > 8 && ballSize <= 13){ tempStr = "hand-filling"; }
-		if (ballSize > 13 && ballSize <= 17){ tempStr = "huge"; }
-		if (ballSize > 17 && ballSize <= 26){ tempStr = "barely palmable"; }
-		if (ballSize > 26 && ballSize <= 40){ tempStr = "enormous"; }
-		if (ballSize > 40 && ballSize <= 80){ tempStr = "tremendous"; }
-		if (ballSize > 80 && ballSize <= 120){ tempStr = "huggable"; }
-		if (ballSize > 120 && ballSize <= 240){ tempStr = "gargantuan"; }
-		if (ballSize > 240){ tempStr = "colossal"; }
+	if (chance <= 50){
+		if (ballRatio() < 0.009) { tempStr = "puny"; }
+		else if (ballRatio() < 0.016) { tempStr = "small"; }
+		else if (ballRatio() < 0.033) { tempStr = "sizeable"; }
+		else if (ballRatio() < 0.066) { tempStr = "big"; }
+		else if (ballRatio() < 0.1) { tempStr = "large"; }
+		else if (ballRatio() < 0.15) { tempStr = "impressive"; }
+		else if (ballRatio() < 0.2) { tempStr = "hefty"; }
+		else if (ballRatio() < 0.3) { tempStr = "huge"; }
+		else if (ballRatio() < 0.45) { tempStr = "giant"; }
+		else if (ballRatio() < 0.7) { tempStr = "tremendous"; }
+		else if (ballRatio() < 1) { tempStr = "massive"; }
+		else if (ballRatio() < 1.5) { tempStr = "intimidating"; }
+		else if (ballRatio() < 2.5) { tempStr = "frighteningly large"; }
+		else if (ballRatio() < 4.0) { tempStr = "impossibly large"; }
+		else if (ballRatio() < 7) { tempStr = "colossal"; }
+		else if (ballRatio() < 11) { tempStr = "threateningly big"; }
+		else if (ballRatio() < 20) { tempStr = "awe-inspiring"; }
+		else { tempStr = "force-of-destruction"; }
 	}
-	if (chance > 50){
-		if (ballSize <= 1){ tempStr = "marble-sized"; }
-		if (ballSize > 1 && ballSize <= 3){ tempStr = "golfball-sized"; }
-		if (ballSize > 3 && ballSize <= 5){ tempStr = "kiwi-sized"; }
-		if (ballSize > 5 && ballSize <= 8){ tempStr = "tennisball-sized"; }
-		if (ballSize > 8 && ballSize <= 13){ tempStr = "baseball-sized"; }
-		if (ballSize > 13 && ballSize <= 17){ tempStr = "softball-sized"; }
-		if (ballSize > 17 && ballSize <= 26){ tempStr = "cantaloupe-sized"; }
-		if (ballSize > 26 && ballSize <= 40){ tempStr = "basketball-sized"; }
-		if (ballSize > 40 && ballSize <= 80){ tempStr = "watermelon-sized"; }
-		if (ballSize > 80 && ballSize <= 120){ tempStr = "beachball-sized"; }
-		if (ballSize > 120 && ballSize <= 240){ tempStr = "boulder-sized"; }
-		if (ballSize > 240){ tempStr = "landscape-crushing"; }
+	else {
+		if (ballRatio() < 0.009) { tempStr = "hard-to-find"; }
+		else if (ballRatio() < 0.016) { tempStr = "barely grabable"; }
+		else if (ballRatio() < 0.033) { tempStr = "graspable"; }
+		else if (ballRatio() < 0.066) { tempStr = "hand-filling"; }
+		else if (ballRatio() < 0.1) { tempStr = "crotch-filling"; }
+		else if (ballRatio() < 0.15) { tempStr = "thigh-slapping"; }
+		else if (ballRatio() < 0.2) { tempStr = "thigh-filling"; }
+		else if (ballRatio() < 0.3) { tempStr = "knee-knocking"; }
+		else if (ballRatio() < 0.45) { tempStr = "shin-slapping"; }
+		else if (ballRatio() < 0.7) { tempStr = "ground-dragging"; }
+		else if (ballRatio() < 1) { tempStr = "hippity-hop"; }
+		else if (ballRatio() < 1.5) { tempStr = "larger-than-yourself"; }
+		else if (ballRatio() < 2.5) { tempStr = "cover-granting"; }
+		else if (ballRatio() < 4.0) { tempStr = "room-sized"; }
+		else if (ballRatio() < 7) { tempStr = "building-sized"; }
+		else if (ballRatio() < 11) { tempStr = "mobile-hill"; }
+		else if (ballRatio() < 20) { tempStr = "sky-scraping"; }
+		else { tempStr = "sub-celestial"; }
 	}
+
 	return tempStr;
 }
 
