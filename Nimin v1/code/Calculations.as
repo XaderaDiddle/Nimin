@@ -116,6 +116,27 @@ function bustRatio():float{
 	return totalBust()/chestSize();
 }
 
+function nippleDimension():float {
+	var base_weight:float = 0.005; //Pounds
+	var totalNS:float = nipSize * nipSizeMod;
+	var r:float = Math.pow(totalNS*baseWeight**27.77/(2*Math.pi*nipNarrowMod),1/3);
+
+
+	return Math.floor(10*(2*Math.pi*r*nipNarrowMod)/10; //Length is 1.3 times circumference
+}
+
+
+
+function penisDimension():float {
+	var base_weight:float = 0.05; //Pounds
+	var totalCS:float = cockSize * cockSizeMod;
+	var r:float = Math.pow(totalCS*baseWeight*27.77/(2*Math.pi*cockNarrowMod),1/3);
+
+
+	return Math.floor(10*(2*Math.pi*r*cockNarrowMod)/10;
+}
+
+
 function ballDimension():float {
 	var base_weight:float = 0.005; //Pounds
 	var totalBS:float =  blueBalls/30 + ballSize;

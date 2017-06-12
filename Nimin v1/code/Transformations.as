@@ -129,6 +129,7 @@ function affinityChange():void {
 	if ((horseAffinity+horse) >= 40 && horseAffinity < 40) {
 		if (cockTotal > 0){	textLP("\r\rYour "+clothesBottom()+" grows tight, filling with extra cockflesh. Opening the "+clothesBottom()+", your cock"+plural(1)+" spill"+plural(3)+" out, dangling while swelling larger and larger. The growth slows to a halt, much, much longer than before. 'Hung like a horse' seems like the appropriate phrase. And you're also going to have to sneak back into town while you hide your perverse excess flesh, rushing to a tailor to refit you."); }
 		if (vagTotal > 0) { textLP("\r\rDoubling over, you hug your belly as it begins to cramp. You can clearly feel your vaginal flesh grow within, the walls growing much deeper. By the time it's over, you feel somewhat like a mare, able to take cocks much larger than you could have before...");  	}
+		cockNarrow += 0.5;
 		cockSizeMod += 1;
 		vagSizeMod += 1;
 		vagBellyChange(0,0);
@@ -136,6 +137,7 @@ function affinityChange():void {
 	if ((horseAffinity+horse) < 40 && horseAffinity >= 40) {
 		if (cockTotal > 0){	textLP("\r\rYour "+clothesBottom()+" feel baggier. Opening the "+clothesBottom()+", your cock"+plural(1)+" shrinking towards your groin, losing a great deal of length. It seems like you have lost your equine engorgement."); }
 		if (vagTotal > 0) { textLP("\r\rYour belly feels rather empty all of a sudden. Placing your hand over it, you can feel the vaginal flesh recede, no longer built like mare.");	}
+		cockNarrow -= 0.5;
 		cockSizeMod -= 1;
 		vagSizeMod -= 1;
 		vagBellyChange(0,0);
@@ -172,20 +174,23 @@ function affinityChange():void {
 	//Cow
 	trace(cowAffinity+cow);
 	if ((cowAffinity+cow) >= 10 && cowAffinity < 10) {
-		textLP("\r\rYour nipples stiffen beneath your "+clothesTop()+". They protrude nearly half an inch further than before!");
+		textLP("\r\rYour nipples stiffen beneath your "+clothesTop()+". They protrude nearly further than before, though slightly narrower!");
 		nippleSize += 2;
+		nipNarrow += 0.2;
 		milkMod += 50;
 	}
 	if ((cowAffinity+cow) >= 25 && cowAffinity < 25) {
-		textLP("\r\rYour nipples stiffen beneath your "+clothesTop()+". They protrude an inch further than before! And your hips seem slightly broader...");
+		textLP("\r\rYour nipples stiffen beneath your "+clothesTop()+". They protrude even further than before, though slightly narrower! And your hips seem slightly broader...");
 		lactChange(1, 75);
+		nipNarrow += 0.3;
 		nippleSize += 5;
 		hips += 4;
 		milkMod += 50;
 	}
 	if ((cowAffinity+cow) >= 40 && cowAffinity < 40) {
-		textLP("\r\rYour nipples squirm within your "+clothesTop()+". They've grown over an inch and a half in length! And your hips feel like they're more 'square' than before...");
+		textLP("\r\rYour nipples squirm within your "+clothesTop()+". They've grown even further than before, being more narrow and teat-like! And your hips feel like they're more 'square' than before...");
 		lactChange(1, 75);
+		nipNarrow += 0.4;
 		nippleSize += 8;
 		hips += 6;
 		milkMod += 50;
@@ -200,22 +205,25 @@ function affinityChange():void {
 		teatSize = 2*nippleSize;
 	}
 	if ((cowAffinity+cow) < 10 && cowAffinity >= 10) {
-		textLP("\r\rYour nipples are less noticeable, shrinking by nearly half an inch.");
+		textLP("\r\rYour nipples are less noticeable, receding back into your breasts slightly.");
 		nippleSize -= 2;
+		nipNarrow -= 0.2;
 		milkMod -= 50;
 	}
 	if ((cowAffinity+cow) < 25 && cowAffinity >= 25) {
-		textLP("\r\rYour nipples seem less noticeable as they shrink by an inch and your hips are less wide.");
+		textLP("\r\rYour nipples seem less noticeable as they shrink and your hips are less wide.");
 		lactChange(1, -50);
 		if (udders == true)	{ lactChange(2, -50); }
 		nippleSize -= 5;
+		nipNarrow -= 0.3;
 		hips -= 4;
 		milkMod -= 50;
 	}
 	if ((cowAffinity+cow) < 40 && cowAffinity >= 40) {
-		textLP("\r\rYour "+clothesTop()+" feels slightly looser, as your nipples shrink by over an inch and a half. You hips also narrow a little, protruding less than before.");
+		textLP("\r\rYour "+clothesTop()+" feels slightly looser, as your nipples no longer stand out as far. You hips also narrow a little, protruding less than before.");
 		lactChange(1, -50);
 		if (udders == true)	{ lactChange(2, -50); }
+		nipNarrow -= 0.4;
 		hips -= 6;
 		nippleSize -= 8;
 		milkMod -= 50;

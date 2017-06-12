@@ -48,6 +48,7 @@ function doRace():void {
 			currentZone = 2;
 			horseAffinity = 50;
 			cockSizeMod += 1;
+			cockNarrow += 0.5;
 			vagSizeMod += 1;
 			dominant = 2;
 			tail = 2;
