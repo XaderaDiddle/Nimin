@@ -24,7 +24,7 @@ function doStatus(time:int):void{
 				pregArray[i+3] += Math.ceil(time*pregRate); 
 				pregChanges(i);
 			}
-			if (pregArray[i+3] > birthTime(pregArray[i+1]) {
+			if (pregArray[i+3] > birthTime(pregArray[i+1])) {
 				doBirth(i, birthCount);
 				birthCount++;
 				pregArray[i] = false;
@@ -45,7 +45,7 @@ function doStatus(time:int):void{
 		else { textLP("\r\rYour breasts are producing even more milk, feeling even fuller... Your body must be getting ready for the baby that's growing inside of you."); }	
 		if (pregMilk > 10) {  //Fast lactation boost leads to growth
 			textLP(" With so much production, your breasts");
-			if (udders == true) { textLP(" and udder";		}
+			if (udders == true) { textLP(" and udder");		}
 			textLP(" have swollen larger from the maternity growth.");
 			boobChange(Math.floor(pregMilk/10));
 			udderChange(Math.floor(pregMilk/10));
