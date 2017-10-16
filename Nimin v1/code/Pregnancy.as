@@ -61,13 +61,13 @@ function maxPregTime(pregnancyType:int):int{
 function birthTime(pregnancyType:int):int{
 	var tempInt:int = 0;
 	if (setBirthTime(pregnancyType) > 0) { return setBirthTime(pregnancyType); }
-	else if (percent() > 50) { tempInt = Math.floor((maxPregTime(baseBabyWeight(pregnancyType)) + percent()/500*maxPregTime(baseBabyWeight(pregnancyType)))); }
-	else { tempInt = Math.floor((maxPregTime(baseBabyWeight(pregnancyType)) - percent()/1000*maxPregTime(baseBabyWeight(pregnancyType)))); }
+	else if (percent() > 50) { tempInt = Math.floor(maxPregTime(baseBabyWeight(pregnancyType)) + percent()/500*maxPregTime(baseBabyWeight(pregnancyType))); }
+	else { tempInt = Math.floor(maxPregTime(baseBabyWeight(pregnancyType)) - percent()/1000*maxPregTime(baseBabyWeight(pregnancyType))); }
 	return TempInt;
 }
 
-function totalPregnancyWeight():float{
-	var tempInt:float = 0.0;
+function totalPregnancyWeight():Number{
+	var tempInt:Number = 0.0;
 	i = 0;
 	while (i < pregArray.length) {
 		if (pregArray[i] == true) {
@@ -79,21 +79,21 @@ function totalPregnancyWeight():float{
 	return tempInt;
 }
 
-function birthWeight(pregnancyType:int,number:int,time:int):float{
+function birthWeight(pregnancyType:int,number:int,time:int):Number{
 	return Math.floor(10*baseBabyWeight(pregnancyType)/baseLitterSize(pregnancyType)*number*time/maxPregTime(pregnancyType))/10;
 }
 
-function baseWaist():float{
+function baseWaist():Number{
 	return Math.floor(10*(tallness*0.4))/10;
 }
 
-function normalWaist():float{
+function normalWaist():Number{
 	return baseWaist + bellyMod/10;
 }
 
-function vaginaWaist():float {
-	var initialVag:float = tallness/4;
-	var vagGirth:float = trueVagSize - initialVag;
+function vaginaWaist():Number {
+	var initialVag:Number = tallness/4;
+	var vagGirth:Number = trueVagSize - initialVag;
 
 	if (vagGirth > 0) {
 		return Math.floor(10*(2*Math.PI*Math.pow((3*vagGirth/(8*Math.PI)),1/3)))/10;
@@ -101,29 +101,29 @@ function vaginaWaist():float {
 	else { return 0; }
 }
 
-function pregnancyWaist():float{
-	var density:float = 0.008
+function pregnancyWaist():Number{
+	var density:Number = 0.008
 	return Math.floor(10*(2*Math.PI*Math.pow((3*totalPregnancyWeight()/(4*density*Math.PI)),1/3)))/10;
 	//return Math.floor(10*(2*Math.PI*Math.pow((totalPregnancyWeight()/0.01179*Math.PI),1/3)))/10;
 }
 
-function genitalWaist():float {
+function genitalWaist():Number {
 	return Math.floor(10*(vaginaWaist() + pregnancyWaist()*pregnancyWaist()/(vaginaWaist() + pregnancyWaist())))/10;
 }
 
-function totalWaist():float{
+function totalWaist():Number{
 	return Math.floor(10*(normalWaist()+genitalWaist()*genitalWaist()/(normalWaist()+genitalWaist())))/10;
 }
 
-function waistFromPregnancy():float{
+function waistFromPregnancy():Number{
 	return (totalWaist() - normalWaist());
 }
 
-function waistFromFat():float{
+function waistFromFat():Number{
 	return (normalWaist() - baseWaist());
 }
 
-function waistRatio():float{
+function waistRatio():Number{
 	return totalWaist()/baseWaist();
 }
 
@@ -167,8 +167,8 @@ function baseBabyWeight(pregnancyType:int):int{
 	return tempInt;
 }
 
-function baseLitterSize(pregnancyType:int):float{
-	var tempInt:float = 0;
+function baseLitterSize(pregnancyType:int):Number{
+	var tempInt:Number = 0;
 	if (pregnancyType == 1) { tempInt = 1; }	
 	if (pregnancyType == 2) { tempInt = 1; }
 	if (pregnancyType == 3) { tempInt = 4.5; }

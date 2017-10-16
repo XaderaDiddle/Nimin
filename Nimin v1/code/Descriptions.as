@@ -474,28 +474,34 @@ function ballDesc():String{
 function nipDesc():String{
 	var chance:int = percent();
 	var tempStr:String = "NIPPLE ERROR "+nippleSize;
-	if (chance <= 100){
-		if (nippleSize <= 2){ tempStr = "small "; }
-		if (nippleSize > 2 && nippleSize <= 5){ tempStr = "noticeable "; }
-		if (nippleSize > 5 && nippleSize <= 15){ tempStr = "blatant "; }
-		if (nippleSize > 15 && nippleSize <= 30){ tempStr = "teat-like "; }
-		if (nippleSize > 30 && nippleSize <= 50){ tempStr = "cock-like "; }
-		if (nippleSize > 50 && nippleSize <= 100){ tempStr = "horsecock-like "; }
-		if (nippleSize > 100 && nippleSize <= 140){ tempStr = "arm-sized "; }
-		if (nippleSize > 140 && nippleSize <= 300){ tempStr = "pole-like "; }
-		if (nippleSize > 300){ tempStr = "tree-sized "; }
-		if (nipType == 2 && lust < 50) { tempStr = "inverted ";	}
+	if (chance <= 100 || nipBreastRatio() == 0.0){
+		if (nipTallRatio() <= 0.002 ) { tempStr = "tiny"; }
+		else if (nipTallRatio() <= 0.004 ) { tempStr = "small"; }
+		else if (nipTallRatio() <= 0.008 ) { tempStr = "protruding"; }
+		else if (nipTallRatio() <= 0.016 ) { tempStr = "thimble-sized"; }
+		else if (nipTallRatio() <= 0.035 ) { tempStr = "thumb-sized"; }
+		else if (nipTallRatio() <= 0.07 ) { tempStr = "grabbable"; }
+		else if (nipTallRatio() <= 0.15 ) { tempStr = "strokeable"; }
+		else if (nipTallRatio() <= 0.3 ) { tempStr = "forearm-sized"; }
+		else if (nipTallRatio() <= 0.6 ) { tempStr = "arm-length"; }
+		else if (nipTallRatio() <= 1.2 ) { tempStr = "person-sized"; }
+		else if (nipTallRatio() <= 2.5 ) { tempStr = "pole-like"; }
+		else if (nipTallRatio() <= 5 ) { tempStr = "tree-sized"; }
+		else if (nipTallRatio() <= 10 ) { tempStr = "road-clearing"; }
+		else if (nipTallRatio() <= 20 ) { tempStr = "path-scouting"; }
+		else { tempStr = "sky-touching"; }
 	}
-	if (chance > 50){
-		if (nippleSize <= 2){ tempStr = ""; }
-		if (nippleSize > 2 && nippleSize <= 5){ tempStr = "perky "; }
-		if (nippleSize > 5 && nippleSize <= 15){ tempStr = "hypnotizing "; }
-		if (nippleSize > 15 && nippleSize <= 30){ tempStr = "long "; }
-		if (nippleSize > 30 && nippleSize <= 50){ tempStr = "huge "; }
-		if (nippleSize > 50 && nippleSize <= 100){ tempStr = "enormous "; }
-		if (nippleSize > 100 && nippleSize <= 140){ tempStr = "extreme "; }
-		if (nippleSize > 140 && nippleSize <= 300){ tempStr = "ridiculous "; }
-		if (nippleSize > 300){ tempStr = "obscene "; }
+	else if (chance > 50){
+		if (nipBreastRatio() <= .06) { tempStr = "flat";	}
+		else if (nipBreastRatio() <= .125) { tempStr = "";	}
+		else if (nipBreastRatio() <= .25) { tempStr = "perky";	}
+		else if (nipBreastRatio() <= .5) { tempStr = "pokey";	}
+		else if (nipBreastRatio() <= 1) { tempStr = "far-standing";	}
+		else if (nipBreastRatio() <= 2) { tempStr = "drooping";	}
+		else if (nipBreastRatio() <= 4) { tempStr = "flopping";	}
+		else if (nipBreastRatio() <= 8) { tempStr = "chest-crowding"; }
+		else if (nipBreastRatio() <= 16) { tempStr = "breast-hiding"; }
+		else { tempStr = "overshadowing"; }
 		if (nipType == 2 && lust < 50) { tempStr = "sunken ";	}
 	}
 	chance = percent();

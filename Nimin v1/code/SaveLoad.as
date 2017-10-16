@@ -1050,6 +1050,21 @@ function doLoad(so:Object):void {
 	statPane.visible = true;
 	DayPane.visible = true;
 	levelPane.visible = true;
+	strNum.visible = true;
+	mentNum.visible = true;
+	libNum.visible = true;
+	senNum.visible = true;
+	hpNum.visible = true;
+	lustNum.visible = true;
+	hungerNum.visible = true;
+	hpText.visible = true;
+	lustText.visible = true;
+	hungerText.visible = true;
+	dayNum.visible = true;
+	hourNum.visible = true;
+	levelNum.visible = true;
+	sexPNum.visible = true;
+	coinNum.visible = true;
 	
 	checkUpdate();
 	regionChange(currentZone);

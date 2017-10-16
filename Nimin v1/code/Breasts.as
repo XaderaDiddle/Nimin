@@ -51,6 +51,16 @@ function nippleDimension():float {
 	return Math.floor(10*(2*Math.pi*r*nipNarrowMod)/10.0;
 }
 
+function nipTallRatio():float {
+	return nipDimension()/tallness;
+}
+
+function nipBreastRatio():float {
+	var tempFloat:float = 0.0
+	if (bustSize() > 0) { tempFloat = nipDimension()/bustSize()	}
+	return tempFloat;
+}
+
 function nipMilkLimit():int{
 	return totalNipSize * nipNarrowMod * 100; //100mL of milk per hour per nip size
 }

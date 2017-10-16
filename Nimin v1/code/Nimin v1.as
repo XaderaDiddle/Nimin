@@ -510,16 +510,33 @@ Option4.addEventListener(MouseEvent.CLICK, option4Event);
 Option5.addEventListener(MouseEvent.CLICK, option5Event);
 Option6.addEventListener(MouseEvent.CLICK, option6Event);
 Option7.addEventListener(MouseEvent.CLICK, option7Event);
+Option8.addEventListener(MouseEvent.CLICK, option7Event);
+Option8a.addEventListener(MouseEvent.CLICK, option7Event);
 
 scrollBar1.scrollTarget = outputWindow;
 scrollBar2.scrollTarget = sideWindow;
 statPane.visible = false;
+strNum.visible = false;
+mentNum.visible = false;
+libNum.visible = false;
+senNum.visible = false;
+hpNum.visible = false;
+lustNum.visible = false;
+hungerNum.visible = false;
+hpText.visible = false;
+lustText.visible = false;
+hungerText.visible = false;
 levelPane.visible = false;
+levelNum.visible = false;
+sexPNum.visible = false;
+coinNum.visible = false;
 currentRegion.visible = false;
 region.visible = false;
 saveGame.visible = false;
 saveGameOutline.visible = false;
 DayPane.visible = false;
+dayNum.visible = false;
+hourNum.visible = false;
 Option7.visible = false;
 sideHide();
 appearanceText.visible = false;
@@ -1367,6 +1384,7 @@ function statsMod(stre:int, menta:int, libi:int, sens:int) {
 	statDisplay();	
 }
 
+
 //Update Stat Display
 function statDisplay():void { 
 
@@ -1375,20 +1393,32 @@ function statDisplay():void {
 	lib = libido + libMod;
 	sen = sensitivity + senMod;
 
-	var tempStr:String = "BaseStats\r";
+	var tempStr:String = "BaseStats\r\rStrength   :\rMentality  :\rLibido     :\rSensitivity:";
 
-	tempStr += "\rStrength   : " + str;
-	tempStr += "\rMentality  : "+ment;
-	tempStr += "\rLibido     : "+lib;
-	tempStr += "\rSensitivity: "+sen;
-
-	tempStr += "\r\rCombat Stats";
-	tempStr += "\rHP         : "+HP;
-	tempStr += "\rLust       : "+lust;
-	tempStr += "\rHunger     : "+hunger;
+	tempStr += "\r\rCombat Stats\rHP         :\rLust       :\rHunger     :";
 
 	statPane.htmlText =  tempStr; 
+
+	strNum.htmlText = ""+str;
+	mentNum.htmlText = ""+ment;
+	libNum.htmlText = ""+lib;
+	senNum.htmlText = ""+sen;
+
+	hpNum.htmlText = ""+HP;
+	lustNum.htmlText = ""+lust;
+	hungerNum.htmlText = ""+hunger;
+
 	statPane.textColor = uint("0x"+fontColor);
+	hpText.textColor = uint("0x"+fontColor);
+	lustText.textColor = uint("0x"+fontColor);
+	hungerText.textColor = uint("0x"+fontColor);
+	strNum.textColor = uint("0x"+fontColor);
+	mentNum.textColor = uint("0x"+fontColor);
+	libNum.textColor = uint("0x"+fontColor);
+	senNum.textColor = uint("0x"+fontColor);
+	hpNum.textColor = uint("0x"+fontColor);
+	lustNum.textColor = uint("0x"+fontColor);
+	hungerNum.textColor = uint("0x"+fontColor);
 	//statValuePane.htmlText = "\r\r" + int(str) + "\r" + int(ment) + "\r" + int(lib) + "\r" + int(sen) + "\r\r\r" + int(HP) + "\r" + int(lust); 
 	//statValuePane.textColor = uint("0x"+fontColor);
 }
@@ -1403,7 +1433,13 @@ function doSexP(changes:int):void{
 		doSexP(changes);
 	}
 	else { SexP += changes*SexPMod; }
-	levelPane.text = "Level  : "+level+"\rSexP   : "+SexP+"\rCoin   : "+coin;
+	levelPane.text = "Level :\rSexP  :\rCoin  :";
+	levelNum.text = ""+level;
+	sexPNum.text = ""+SexP;
+	coinNum.text = ""+coin;
+	levelNum.textColor = uint("0x"+fontColor);
+	sexPNum.textColor = uint("0x"+fontColor);
+	coinNum.textColor = uint("0x"+fontColor);
 	levelPane.textColor = uint("0x"+fontColor);
 }
 
@@ -1434,7 +1470,9 @@ function dayTime(Time:Number):void{
 		day++;
 	}
 	hour = hour + addTime;
-	DayPane.text = "Day : "+int(day)+"\rHour: "+int(hour)+":00";
+	DayPane.text = "Day   :\rHour  :";
+	dayNum.text = ""+day;
+	hourNum.text = ""+hour;
 	DayPane.textColor = uint("0x"+fontColor);
 	doStatus(Time);
 }
@@ -1747,9 +1785,24 @@ function newGameGo():void {
 		if (buttonChoice == 6){
 			hideUpDown();
 			statPane.visible = true;
+			strNum.visible = true;
+			mentNum.visible = true;
+			libNum.visible = true;
+			senNum.visible = true;
+			hpNum.visible = true;
+			lustNum.visible = true;
+			hungerNum.visible = true;
+			hpText.visible = true;
+			lustText.visible = true;
+			hungerText.visible = true;
 			DayPane.visible = true;
+			dayNum.visible = true;
+			hourNum.visible = true;
 			levelPane.visible = true;
-			Option7.visible = false;			
+			levelNum.visible = true;
+			sexPNum.visible = true;
+			coinNum.visible = true;
+			Option7.visible = false;
 			sideHide();
 				
 			//Clear variables

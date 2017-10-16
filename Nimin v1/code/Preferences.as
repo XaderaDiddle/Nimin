@@ -84,18 +84,34 @@ function toggleColor():void{
 	savePreferences();
 }
 
+function swapOption8():void{
+	var opt8x:Number = Option8.x;
+	var opt8y:Number = Option8.y;
+	var opt8ax:Number = Option8a.x;
+	var opt8ay:Number = Option8a.y;
+	
+	Option8.x = opt8ax;
+	Option8.y = opt8ay;
+	Option8a.x = opt8x;
+	Option8a.y = opt8y;
+
+}
+
+
 //Toggle Side Display
 function toggleSide():void{
 	if (showSide == true) {
 		showSide = false;
 		sideHide();
 		Option7.htmlText = "--";
+		swapOption8();
 	}
 	else {
 		showSide = true;
 		sideShow();
 		updateSide();
 		Option7.htmlText = "O";
+		swapOption8();
 	}
 	if (Option7.visible == true) { savePreferences(); }
 }
@@ -187,8 +203,23 @@ function updateText():void {
 	var tempStr:String = "0x"+fontColor;
 	var tempUInt:uint = uint(tempStr);
 	statPane.textColor = tempUInt;
+	strNum.textColor = tempUInt;
+	mentNum.textColor = tempUInt;
+	libNum.textColor = tempUInt;
+	senNum.textColor = tempUInt;
+	hpNum.textColor = tempUInt;
+	lustNum.textColor = tempUInt;
+	hungerNum.textColor = tempUInt;
+	hpText.textColor = tempUInt;
+	lustText.textColor = tempUInt;
+	hungerText.textColor = tempUInt;
 	levelPane.textColor = tempUInt;
+	levelNum.textColor = tempUInt;
+	sexPNum.textColor = tempUInt;
+	coinNum.textColor = tempUInt;
 	DayPane.textColor = tempUInt;
+	dayNum.textColor = tempUInt;
+	hourNum.textColor = tempUInt;
 	outputWindow.textColor = tempUInt;
 	region.textColor = tempUInt;
 	currentRegion.textColor = tempUInt;
