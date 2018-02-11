@@ -2,20 +2,12 @@
 
 function startStats():void {
 
-      //Tracking stats
-      currentState = 0;
-      currentZone = 0;
-      inBag = false;
-      inShop = false;
-      inDungeon = false;
-      currentDungeon = 0;
-
       //Character general stats
-      str  = 0;
-      ment = 0;
-      lib  = 0;
-      sen  = 0;
-      HP   = 0;
+      str  = 15;
+      ment = 15;
+      lib  = 15;
+      sen  = 15;
+      HP   = 5;
       lust = 0;
       coin = 0;
       strMod = 0;
@@ -28,10 +20,59 @@ function startStats():void {
       day = 0;
       hour = 8;
 
-      //Levling stats
-      SexP = 0;
-      levelUP = 0;
-      level = 0;
+      //Equipment stats
+      attireTop = 1;
+      attireBot = 2;
+      weapon = 10;      
+
+      //Base body stats
+      gender = 1;
+      race = 1;
+      body = 15;
+      dominant = 1;
+      hips = 1;
+      butt = 1;
+      tallness = 60;
+      skinType = 1;
+      tail = 0;
+      ears = 1;
+      hair = 0;
+      hairLength = 0;
+      hairColor = 0;
+      legType = 1;
+      wings = 0;
+      faceType = 10;
+      skinColor = 0;
+
+      //Phallic stats
+      cockTotal = 0;
+      humanCocks = 0;
+      horseCocks = 0;
+      wolfCocks = 0;
+      catCocks = 0;
+      lizardCocks = 0;
+      rabbitCocks = 0;
+      cockSize = 0;
+      cockMoist = 0;
+      balls = 0;
+      ballSize = 0;
+      showBalls = true;
+      knot = false;
+      bugCocks = 0;
+
+      //Mammary stats
+      breastSize = 0;
+      boobTotal = 2;
+      nippleSize = 1;
+      udders = false;
+      udderSize = 0;
+      teatSize = 0;
+      clitSize = 0;
+      vagTotal = 0; //If this is >0 for testing purposes, be sure to add pregArray = [false, 0, 0, 0, 0]; at the start of Time based statuses
+      vagSize = 0;
+      vagMoist = 0;
+      vulvaSize = 0;
+      nipType = 1;
 
       //Stat modifiers (not base stats themselves, they're mostly just multipliers as perks)
       runMod = 0;
@@ -72,61 +113,7 @@ function startStats():void {
       nipNarrowMod = 1.07;
       cockNarrowMod = 1.3;
       clitNarrowMod = 1.5;
-      ballSizeMod = 1;
-
-      //Base body stats
-      gender = 0;
-      race = 0;
-      body = 0;
-      dominant = 0;
-      hips = 0;
-      butt = 0;
-      tallness = 0;
-      skinType = 0;
-      tail = 0;
-      ears = 0;
-      hair = 0;
-      hairLength = 0;
-      hairColor = 0;
-      legType = 0;
-      wings = 0;
-      faceType = 0;
-      skinColor = 0;
-
-      //Phallic stats
-      cockTotal = 0;
-      humanCocks = 0;
-      horseCocks = 0;
-      wolfCocks = 0;
-      catCocks = 0;
-      lizardCocks = 0;
-      rabbitCocks = 0;
-      cockSize = 0;
-      cockMoist = 0;
-      balls = 0;
-      ballSize = 0;
-      showBalls = true;
-      knot = false;
-      bugCocks = 0;
-
-      //Mammary stats
-      breastSize = 0;
-      boobTotal = 0;
-      nippleSize = 1;
-      udders = false;
-      udderSize = 0;
-      teatSize = 0;
-      clitSize = 0;
-      vagTotal = 0;
-      vagSize = 0;
-      vagMoist = 0;
-      vulvaSize = 0;
-      nipType = 0;
-
-      //Equipment stats
-      attireTop = 1;
-      attireBot = 2;
-      weapon = 10;
+      ballSizeMod = 1;      
 
       //Time-based statuses
       pregArray = [];
@@ -199,7 +186,23 @@ function startStats():void {
       cowTaurAffinity = 0;
       humanTaurAffinity = 0;
       skunkAffinity = 0;
-      bugAffinity = 0;            
+      bugAffinity = 0; 
+
+       //Leveling stats
+      SexP = 0;
+      levelUP = 0;
+      level = 0;
+
+      //Leveling up
+      babyFactLevel = 0;
+      bodyBuildLevel = 0;
+      hyperHappyLevel = 0;
+      alchemistLevel = 0;
+      fetishMasterLevel = 0;
+      milkMaidLevel = 0;
+      shapeshiftyLevel = 0;
+      shapeshiftyFirst = "";
+      shapeshiftySecond = "";           
 
       //NPC stats
       lilaRep = 0;
@@ -224,23 +227,7 @@ function startStats():void {
       jamieRep1 = 0;
       jamieRep2 = 0;
       jamieRep3 = 0;
-      lilaWetness = 0;
-
-      //Progress tracking
-      foundSoftlik = false;
-      foundFirmshaft = false;
-      foundTieden = false;
-      foundSizCalit = false;
-      foundOviasis = false;
-      foundValley = false;
-      foundSanctuary = false;
-
-      defeatedMinotaur = false;
-      defeatedFreakyGirl = false;
-      defeatedSuccubus = false;
-
-      firstExplore = false;
-
+      lilaWetness = 0;      
 
       //Alchemy knowledge
       knowLustDraft = false;
@@ -266,17 +253,6 @@ function startStats():void {
       knowPussJuice = false;
       knowPheromone = false;
       knowBazoomba = false;
-
-      //Leveling up
-      babyFactLevel = 0;
-      bodyBuildLevel = 0;
-      hyperHappyLevel = 0;
-      alchemistLevel = 0;
-      fetishMasterLevel = 0;
-      milkMaidLevel = 0;
-      shapeshiftyLevel = 0;
-      shapeshiftyFirst = "";
-      shapeshiftySecond = "";
 
 
       //Fetishes (not really used atm)
@@ -341,6 +317,28 @@ function startStats():void {
       itemSlot11 = 0;*/
 
 
+      //Tracking stats
+      currentState = 0;
+      currentZone = 0;
+      inBag = false;
+      inShop = false;
+      inDungeon = false;
+      currentDungeon = 0;
+
+      //Progress tracking
+      foundSoftlik = false;
+      foundFirmshaft = false;
+      foundTieden = false;
+      foundSizCalit = false;
+      foundOviasis = false;
+      foundValley = false;
+      foundSanctuary = false;
+
+      defeatedMinotaur = false;
+      defeatedFreakyGirl = false;
+      defeatedSuccubus = false;
+
+      firstExplore = false;
 
       //Emptying bag and stash
       bagPage = 1;
@@ -354,4 +352,14 @@ function startStats():void {
 
       //Gain whatever items needed for testing
       //gainItem(ID);
+
+      //Debug Items
+      //itemAdd(258)
+      /*knowPussJuice = true;
+      levelUP += 20;
+      doCoin(10000);
+      for(i=1;i<20;i++) {
+            itemAdd(210);
+            itemAdd(114);
+      }*/
 }

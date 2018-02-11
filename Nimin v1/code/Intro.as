@@ -1,6 +1,55 @@
 /****************
  *Game Beginning*
  ****************/
+
+ /*****************
+ *New Game Button*
+ *****************/
+
+//New Game - set most stats and display m/f choice.
+
+ function newGameGo():void {
+	appearanceText.visible = false;
+	appearanceBox.visible = false;
+	saveGame.visible = false;
+	saveGameOutline.visible = false;
+	buttonConfirm();
+	textL("Are you sure you would like to start a new game?");
+	if (currentState == 0) { Choice7.visible = false; }
+	doListen = function():void{
+		if (buttonChoice == 6){
+			hideUpDown();
+			statPane.visible = true;
+			strNum.visible = true;
+			mentNum.visible = true;
+			libNum.visible = true;
+			senNum.visible = true;
+			hpNum.visible = true;
+			lustNum.visible = true;
+			hungerNum.visible = true;
+			hpText.visible = true;
+			lustText.visible = true;
+			hungerText.visible = true;
+			DayPane.visible = true;
+			dayNum.visible = true;
+			hourNum.visible = true;
+			levelPane.visible = true;
+			levelNum.visible = true;
+			sexPNum.visible = true;
+			coinNum.visible = true;
+			Option7.visible = false;
+			sideHide();
+				
+			startStats();
+					
+			
+
+			
+			doRace();
+		}
+		else { doReturn(); }
+	}
+}
  
 /*************
  *Choose Race*
@@ -59,7 +108,7 @@ function doRace():void {
 			mentality = 15;
 			libido	= 17;
 			sensitivity = 15;
-			tallness += 4;
+			tallness = 4;
 			doGender();			
 		}
 		if (buttonChoice == 3){
@@ -78,7 +127,7 @@ function doRace():void {
 			mentality = 17;
 			libido = 15;
 			sensitivity = 15;
-			tallness += -2;
+			tallness = -2;
 			doGender();			
 		}
 		if (buttonChoice == 9){
@@ -99,7 +148,7 @@ function doRace():void {
 			mentality = 15;
 			libido = 17;
 			sensitivity = 17;
-			tallness += -3;
+			tallness = -3;
 			doGender();			
 		}	
 		if (buttonChoice == 11){
@@ -119,7 +168,7 @@ function doRace():void {
 			mentality = 16;
 			libido = 15;
 			sensitivity = 16;
-			tallness += 2;
+			tallness = 2;
 			doGender();			
 		}	
 	}	
@@ -231,7 +280,7 @@ function bodyType():void{
 				body = 29;
 				hips = 4;
 				butt = 4;
-				tallness += 70+Math.floor(percent()/10);
+				tallness = 70+Math.floor(percent()/10);
 				strength += 1;
 				stats(0,0,0,0);
 				doStartingDescription();
@@ -240,7 +289,7 @@ function bodyType():void{
 				body = 20; 
 				hips = 3;
 				butt = 3;
-				tallness += 68+Math.floor(percent()/10);
+				tallness = 68+Math.floor(percent()/10);
 				libido += 1;
 				stats(0,0,0,0);
 				doStartingDescription();
@@ -249,7 +298,7 @@ function bodyType():void{
 				body = 20;
 				hips = 3;
 				butt = 3;
-				tallness += 68+Math.floor(percent()/10);
+				tallness = 68+Math.floor(percent()/10);
 				libido += 1;
 				stats(0,0,0,0);
 				//Remove male bits
@@ -279,7 +328,7 @@ function bodyType():void{
 				butt = 6;
 				breastSize = 4;
 				nippleSize = 2;
-				tallness += 60+Math.floor(percent()/10);
+				tallness = 60+Math.floor(percent()/10);
 				sensitivity += 1;
 				stats(0,0,0,0);
 				doStartingDescription();
@@ -288,7 +337,7 @@ function bodyType():void{
 				body = 7;
 				hips = 1;
 				butt = 2;
-				tallness += 42+Math.floor(percent()/10);
+				tallness = 42+Math.floor(percent()/10);
 				sensitivity += 2;
 				mentality -= 2;
 				strength -= 4;
@@ -305,7 +354,7 @@ function bodyType():void{
 				body = 29;
 				hips = 5;
 				butt = 4;
-				tallness += 68+Math.floor(percent()/10);
+				tallness = 68+Math.floor(percent()/10);
 				breastSize = 4;
 				nippleSize = 4;
 				strength += 1;
@@ -316,7 +365,7 @@ function bodyType():void{
 				body = 16; 
 				hips = 9;
 				butt = 6;
-				tallness += 60+Math.floor(percent()/10);
+				tallness = 60+Math.floor(percent()/10);
 				breastSize = 10;
 				nippleSize = 10;
 				libido += 2;
@@ -327,7 +376,7 @@ function bodyType():void{
 				body = 13;
 				hips = 6;
 				butt = 5;
-				tallness += 60+Math.floor(percent()/10);
+				tallness = 60+Math.floor(percent()/10);
 				breastSize = 6;
 				nippleSize = 6;
 				mentality += 1;
@@ -338,7 +387,7 @@ function bodyType():void{
 				body = 7;
 				hips = 2;
 				butt = 2;
-				tallness += 41+Math.floor(percent()/10);
+				tallness = 41+Math.floor(percent()/10);
 				sensitivity += 2;
 				mentality -= 2;
 				strength -= 4;
@@ -358,7 +407,7 @@ function bodyType():void{
 				body = 29;
 				hips = 4;
 				butt = 4;
-				tallness += 68+Math.floor(percent()/10);
+				tallness = 68+Math.floor(percent()/10);
 				breastSize = 5;
 				nippleSize = 6;
 				strength += 1;
@@ -369,7 +418,7 @@ function bodyType():void{
 				body = 19; 
 				hips = 3;
 				butt = 3;
-				tallness += 62+Math.floor(percent()/10);
+				tallness = 62+Math.floor(percent()/10);
 				breastSize = 2;
 				nippleSize = 2;
 				libido += 1;
@@ -380,7 +429,7 @@ function bodyType():void{
 				body = 14;
 				hips = 5;
 				butt = 4;
-				tallness += 58+Math.floor(percent()/10);
+				tallness = 58+Math.floor(percent()/10);
 				breastSize = 6;
 				nippleSize = 6;
 				mentality += 1;
@@ -391,7 +440,7 @@ function bodyType():void{
 				body = 7;
 				hips = 2;
 				butt = 2;
-				tallness += 42+Math.floor(percent()/10);
+				tallness = 42+Math.floor(percent()/10);
 				sensitivity += 2;
 				mentality -= 2;
 				strength -= 4;

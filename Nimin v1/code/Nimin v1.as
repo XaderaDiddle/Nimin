@@ -17,66 +17,6 @@ import code.Character;
 
 include "Inclusions.as"
 
-/*****************
- *New Game Button*
- *****************/
-
-//New Game - set most stats and display m/f choice.
-
-function newGameGo():void {
-	appearanceText.visible = false;
-	appearanceBox.visible = false;
-	saveGame.visible = false;
-	saveGameOutline.visible = false;
-	buttonConfirm();
-	textL("Are you sure you would like to start a new game?");
-	if (currentState == 0) { Choice7.visible = false; }
-	doListen = function():void{
-		if (buttonChoice == 6){
-			hideUpDown();
-			statPane.visible = true;
-			strNum.visible = true;
-			mentNum.visible = true;
-			libNum.visible = true;
-			senNum.visible = true;
-			hpNum.visible = true;
-			lustNum.visible = true;
-			hungerNum.visible = true;
-			hpText.visible = true;
-			lustText.visible = true;
-			hungerText.visible = true;
-			DayPane.visible = true;
-			dayNum.visible = true;
-			hourNum.visible = true;
-			levelPane.visible = true;
-			levelNum.visible = true;
-			sexPNum.visible = true;
-			coinNum.visible = true;
-			Option7.visible = false;
-			sideHide();
-				
-			startStats();
-					
-			//Debug Items
-			//itemAdd(258)
-			/*knowPussJuice = true;
-			levelUP += 20;
-			doCoin(10000);
-			for(i=1;i<20;i++) {
-				itemAdd(210);
-				itemAdd(114);
-			}*/
-
-			
-			doRace();
-		}
-		else { doReturn(); }
-	}
-}
-		
-
-
-
 
 /******************
  *Inverting Colors*
