@@ -180,6 +180,12 @@ var lockEars:int = 0;
 var lockLegs:int = 0;
 var lockNipples:int = 0;
 var lockCock:int = 0;
+var breastSizeMod:Number = 1;
+var nippleSizeMod:Number = 1;
+var nipNarrowMod:Number = 1.07;
+var cockNarrowMod:Number = 1.3;
+var clitNarrowMod:Number = 1.5;
+var ballSizeMod:Number = 1;
 
 var enemyID:int = 0;
 //enemy determines what enemy you're currently up against
@@ -224,7 +230,6 @@ var catCocks:int = 0;
 var lizardCocks:int = 0;
 var rabbitCocks:int = 0;
 var cockSize:int = 0;
-var cockNarrow:float = 1.3;
 var cockMoist:int = 0;
 var balls:int = 0;
 var ballSize:int = 0;
@@ -235,12 +240,10 @@ var bugCocks:int = 0;
 var breastSize:int = 0;
 var boobTotal:int = 0;
 var nippleSize:int = 1;
-var nipNarrow:float = 1.07;
 var udders:Boolean = false;
 var udderSize:int = 0;
 var teatSize:int = 0;
 var clitSize:int = 0;
-var clitNarrow:float = 1.5;
 var vagTotal:int = 0;
 var vagSize:int = 0;
 var vagMoist:int = 0;
@@ -1000,6 +1003,12 @@ function checkZero():void{
 	if (hipMod < 1) { hipMod = 1; }
 	if (buttMod < 1) { buttMod = 1; }
 	if (bellyMod < 0) { bellyMod = 0; }
+	if (breastSizeMod < .1) { breastSizeMod = .1; }
+	if (nippleSizeMod < .1) { nippleSizeMod = .1; }
+	if (nipNarrowMod < .1) { nipNarrowMod = .1; }
+	if (cockNarrowMod < .1) { cockNarrowMod = .1; }
+	if (clitNarrowMod < .1) { clitNarrowMod = .1; }
+	if (ballSizeMod < .1) { ballSizeMod = .1; }
 
 	if (pregArray.length < vagTotal*5) {
 		while (pregArray.length < vagTotal*5) {
@@ -1013,6 +1022,12 @@ function checkDecimal():void {
 	cumMod = Math.round(cumMod*10)/10;
 	cockSizeMod = Math.round(cockSizeMod*100)/100;
 	vagSizeMod = Math.round(vagSizeMod*100)/100;
+	breastSizeMod = Math.round(breastSizeMod*100)/100;
+	nippleSizeMod = Math.round(nippleSizeMod*100)/100;
+	nipNarrowMod = Math.round(nipNarrowMod*100)/100;
+	cockNarrowMod = Math.round(cockNarrowMod*100)/100;
+	clitNarrowMod = Math.round(clitNarrowMod*100)/100;
+	ballSizeMod = Math.round(ballSizeMod*100)/100;
 	vagElastic = Math.round(vagElastic*10)/10;
 
 	changeMod = Math.round(changeMod*10)/10;
@@ -1524,13 +1539,13 @@ function doPassOut():void{
 		textLP(" You twitch with a pitiful and premature orgasm, your body too tired to withstand your arousal.");
 		if (cockTotal > 0) {
 			var getCum:int = cumAmount();
-			if (getCum <= 24) { textLP(" Spunk drools slowly from your softening erection"+pl(1)+"."); }
-			if (getCum > 24 && getCum <= 72) { textLP(" A few small wads of cum ooze down from your softening erection"+pl(1)+"."); }
-			if (getCum > 72 && getCum <= 1000) { textLP(" Gobs of cum collect and fall feebly from the tips of your softening erection"+pl(1)+"."); }
-			if (getCum > 1000 && getCum <= 2200) { textLP(" A stream of squandered spunk flows from your softening erection"+pl(1)+", like a casual piss."); }
-			if (getCum > 2200 && getCum <= 4500) { textLP(" Your softening erection"+pl(1)+" buck slightly as a heavy flow of spunk washes out weakly."); }
-			if (getCum > 4500 && getCum <= 20000) { textLP(" Cum continually spills from your softening erection"+pl(1)+", making them buck simply from volume, without any force and pooling beneath you."); }
-			if (getCum > 20000) { textLP(" Your "+legDesc(2)+" become"+legDesc(11)+" drenched in your own white spunk as your softening erection"+pl(1)+" weakly spew up the contents of your balls, spilling into a puddle around you."); }
+			if (getCum <= 24) { textLP(" Spunk drools slowly from your softening erection"+plural(1)+"."); }
+			if (getCum > 24 && getCum <= 72) { textLP(" A few small wads of cum ooze down from your softening erection"+plural(1)+"."); }
+			if (getCum > 72 && getCum <= 1000) { textLP(" Gobs of cum collect and fall feebly from the tips of your softening erection"+plural(1)+"."); }
+			if (getCum > 1000 && getCum <= 2200) { textLP(" A stream of squandered spunk flows from your softening erection"+plural(1)+", like a casual piss."); }
+			if (getCum > 2200 && getCum <= 4500) { textLP(" Your softening erection"+plural(1)+" buck slightly as a heavy flow of spunk washes out weakly."); }
+			if (getCum > 4500 && getCum <= 20000) { textLP(" Cum continually spills from your softening erection"+plural(1)+", making them buck simply from volume, without any force and pooling beneath you."); }
+			if (getCum > 20000) { textLP(" Your "+legDesc(2)+" become"+legDesc(11)+" drenched in your own white spunk as your softening erection"+plural(1)+" weakly spew up the contents of your balls, spilling into a puddle around you."); }
 		}
 		if (vagTotal > 0) {
 			textLP(" Your "+vulvaDesc()+" lips quiver and clench against the air, frustratedly grabbing nothing.");
@@ -1868,6 +1883,12 @@ function newGameGo():void {
 			lockLegs = 0;
 			lockNipples = 0;
 			lockCock = 0;
+			breastSizeMod = 1;
+			nippleSizeMod = 1;
+			nipNarrowMod = 1.07;
+			cockNarrowMod = 1.3;
+			clitNarrowMod = 1.5;
+			ballSizeMod = 1;
 		
 			gender = 0;
 			race = 0;

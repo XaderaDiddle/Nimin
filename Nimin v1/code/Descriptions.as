@@ -223,7 +223,7 @@ function faceDesc():String{
 
 function boobDesc():String{
 	var chance:int = percent();
-	var bust:float = bustRatio();
+	var bust:Number = bustRatio();
 	var tempStr:String = "BOOB ERROR "+bust;
 
 	if (chance <= 100){
@@ -576,7 +576,7 @@ function hipDesc():String{
 
 function bellyDesc():String{
 	var chance:int = percent();
-	var tempBelly:float = waistRatio();
+	var tempBelly:Number = waistRatio();
 
 	var tempStr:String = "BELLY ERROR "+(tempBelly);
 

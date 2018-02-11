@@ -86,26 +86,26 @@ function moistCalc(which:int):Number {
 
 
 
-function penisDimension():float {
-	var base_weight:float = 0.05; //Pounds
-	var totalCS:float = cockSize * cockSizeMod;
-	var r:float = Math.pow(totalCS*baseWeight*27.77/(2*Math.pi*cockNarrowMod),1/3);
+function penisDimension():Number {
+	var baseWeight:Number = 0.05; //Pounds
+	var totalCS:Number = cockSize * cockSizeMod;
+	var r:Number = Math.pow(totalCS*baseWeight*27.77/(2*Math.PI*cockNarrowMod),1/3);
 
 
-	return Math.floor(10*(2*Math.pi*r*cockNarrowMod)/10.0;
+	return Math.floor(10*(2*Math.PI*r*cockNarrowMod))/10.0;
 }
 
-function totalBallSize():float{
+function totalBallSize():Number{
 	return Math.floor(10*(blueBalls + ballSize*ballSizeMod))/10.0;
 }
 
-function ballDimension():float {
-	var base_weight:float = 0.005; //Pounds
+function ballDimension():Number {
+	var baseWeight:Number = 0.005; //Pounds
 
 	return Math.floor(10*(Math.pow(totalBallSize()*baseWeight*6,1/3)))/10.0;
 }
 
-function ballRatio():float {
+function ballRatio():Number {
 	return ballDimension()*120/tallness;
 }
 

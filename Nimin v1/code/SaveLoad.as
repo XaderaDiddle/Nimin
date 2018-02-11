@@ -270,6 +270,12 @@ function doSave(slot:int):void {
 	modSave[30] = lockLegs;
 	modSave[31] = lockNipples;
 	modSave[32] = lockCock;
+	modSave[33] = breastSizeMod;
+	modSave[34] = nippleSizeMod;
+	modSave[35] = nipNarrowMod;
+	modSave[36] = ballSizeMod;
+	modSave[37] = cockNarrowMod;
+	modSave[38] = clitNarrowMod;
 	
 	var qualitySave:Array = [];	
 	qualitySave[0] = gender;
@@ -772,6 +778,12 @@ function doLoad(so:Object):void {
 	lockLegs = modLoad[30];
 	lockNipples = modLoad[31];
 	lockCock = modLoad[32];
+	breastSizeMod = modLoad[33];
+	nippleSizeMod = modLoad[34];
+	nipNarrowMod = modLoad[35];
+	ballSizeMod = modLoad[36];
+	cockNarrowMod = modLoad[37];
+	clitNarrowMod = modLoad[38];
 
 
 	gender = qualityLoad[0];

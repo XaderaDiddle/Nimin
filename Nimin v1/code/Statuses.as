@@ -563,7 +563,7 @@ function doStatus(time:int):void{
 		textLP("\r\rYour "+ballDesc()+" balls feel swollen and heavy within your "+clothesBottom()+". The need to spill your seed makes you a little aroused.");
 		doLust(Math.ceil(ballSize/4), 0);
 	}
-	if (balls > 0) { blueBalls += Math.ceiling(time*ballSize*ballSizeMod/336); } //Increase blue balls by 1/7 of 50% of ball size per day
+	if (balls > 0) { blueBalls += Math.ceil(time*ballSize*ballSizeMod/336); } //Increase blue balls by 1/7 of 50% of ball size per day
 	if (blueBalls > blueBallsCap()) { blueBalls = blueBallsCap(); }
 
 	//Body Oil

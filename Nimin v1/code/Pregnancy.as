@@ -63,7 +63,7 @@ function birthTime(pregnancyType:int):int{
 	if (setBirthTime(pregnancyType) > 0) { return setBirthTime(pregnancyType); }
 	else if (percent() > 50) { tempInt = Math.floor(maxPregTime(baseBabyWeight(pregnancyType)) + percent()/500*maxPregTime(baseBabyWeight(pregnancyType))); }
 	else { tempInt = Math.floor(maxPregTime(baseBabyWeight(pregnancyType)) - percent()/1000*maxPregTime(baseBabyWeight(pregnancyType))); }
-	return TempInt;
+	return tempInt;
 }
 
 function totalPregnancyWeight():Number{
@@ -93,7 +93,7 @@ function normalWaist():Number{
 
 function vaginaWaist():Number {
 	var initialVag:Number = tallness/4;
-	var vagGirth:Number = trueVagSize - initialVag;
+	var vagGirth:Number = trueVagSize() - initialVag;
 
 	if (vagGirth > 0) {
 		return Math.floor(10*(2*Math.PI*Math.pow((3*vagGirth/(8*Math.PI)),1/3)))/10;
@@ -192,7 +192,7 @@ function baseLitterSize(pregnancyType:int):Number{
 
 }
 
-function litterSize(pregnancyType:int, extra:int):int{
+function litterSize(pregnancyType:int):int{
 	i = 0;
 	var extra:int = 0;
 	while (percent() < (extraPregChance + 10 - (4*(i+1)*(i)))){
@@ -231,10 +231,13 @@ function pregChanges(i:int):void{
 	var expectedDevelopment:int = maxPregTime(pregArray[i+1]);
 	var developmentPercent:int = Math.floor(currentDevelopment/expectedDevelopment*100);
 	var maxMilk:int = baseBabyWeight(pregArray[i+1])*baseBabyWeight(pregArray[i+1])/2*pregArray[i+4];
+	var pregMilk:int = 0;
 	if (pregArray[i+1] < 1000) {
 		if (Math.floor(developmentPercent/10) > Math.floor(pregArray[i+2]/10)) { //We're checking in 10% intervals
 			if (maxMilk*(developmentPercent - pregArray[i+2])/100 > 5) { //We want at minimum 5ml lactchange
 				pregMilk += Math.round(maxMilk*(developmentPercent - pregArray[i+2])/100);
+				lactChange(1,pregMilk);
+				lactChange(2,pregMilk);
 				pregArray[i+2] = developmentPercent;
 			}
 		}
@@ -255,12 +258,12 @@ function doBirth(i:int, birthCount:int):void{
 		if (birthCount == 0) { textLP("\r\rYou freeze in place as you feel a shift within. Water splashes across your "+legDesc(4)+", flooding from "+oneYour(2)+" womb"+plural(2)+". As the contractions kick in, you realize you've gone into labor!\r\rYou squat down closer to the ground, pulling "+pullUD(2)+" your "+clothesBottom()+" and "+legVerb(1)+" your "+legDesc(6)+". You gather some of your belongings below you for a safer landing and prepare to deliver the child on your own."); }
 		if (birthCount > 0)	{ textLP("\r\rBut you're still not done, it seems... Another shift in another womb triggers you to pause in taking care of what's in your arms and focus again between your "+legDesc(4)+" to bring something else into the world."); }
 		
-		if (babySize < tallness/32) { textLP(" There's a slight pressure under your "+bellyDesc()+" belly, but you're almost unsure if the labor has actually begun, it feels so mild. It's not until the body starts entering your passage that you know you're really giving birth."); }
-		else if (babySize < tallness/16){ textLP(" A growing pressure builds under your "+bellyDesc()+" belly. The sensation isn't so powerful that you feel caught off guard, but it's strong enough to make you glad you squat. The position gives you plenty more leverage to push the body into your passage."); }
-		else if (babySize < tallness/8) { textLP(" An intense pressure builds under your "+bellyDesc()+" belly, making you swoon a little as you squat. You brace yourself, breathing steadily to maintain your composure against the powerful throbs, and gasp a little as the body pushes into your passage."); }
-		else if (babySize < tallness/4) { textLP(" A tremendous pressure builds under your "+bellyDesc()+" belly. You nearly fall over just from the powerful sensations. Your breathing becomes heavy and frequent, doing all you can to remain focused and groaning as the body pushes into your passage."); 	}
-		else if (babySize < tallness/2) { textLP(" Your eyes go wide as the pressure sinks to the bottom of your "+bellyDesc()+" belly like an anvil inside. You brace yourself from falling over, barely taking breaths as your face contorts in amazement and shock at the massive weight within. A low groan at the base of your throat grows into a howl as the body within pushes into your passage.");	}
-		else if (babySize < tallness) { textLP(" You quake in place as a massive pressure throbs below your "+bellyDesc()+" belly. The extreme sensation of weight within leaves you in a breathless stupor. How did something so big grow inside of you?! The only breath you manage to take is the one you suck in to shout loudly in surprise as the giant body pushes out into your passage.");	}
+		if (birthSize < tallness/32) { textLP(" There's a slight pressure under your "+bellyDesc()+" belly, but you're almost unsure if the labor has actually begun, it feels so mild. It's not until the body starts entering your passage that you know you're really giving birth."); }
+		else if (birthSize < tallness/16){ textLP(" A growing pressure builds under your "+bellyDesc()+" belly. The sensation isn't so powerful that you feel caught off guard, but it's strong enough to make you glad you squat. The position gives you plenty more leverage to push the body into your passage."); }
+		else if (birthSize < tallness/8) { textLP(" An intense pressure builds under your "+bellyDesc()+" belly, making you swoon a little as you squat. You brace yourself, breathing steadily to maintain your composure against the powerful throbs, and gasp a little as the body pushes into your passage."); }
+		else if (birthSize < tallness/4) { textLP(" A tremendous pressure builds under your "+bellyDesc()+" belly. You nearly fall over just from the powerful sensations. Your breathing becomes heavy and frequent, doing all you can to remain focused and groaning as the body pushes into your passage."); 	}
+		else if (birthSize < tallness/2) { textLP(" Your eyes go wide as the pressure sinks to the bottom of your "+bellyDesc()+" belly like an anvil inside. You brace yourself from falling over, barely taking breaths as your face contorts in amazement and shock at the massive weight within. A low groan at the base of your throat grows into a howl as the body within pushes into your passage.");	}
+		else if (birthSize < tallness) { textLP(" You quake in place as a massive pressure throbs below your "+bellyDesc()+" belly. The extreme sensation of weight within leaves you in a breathless stupor. How did something so big grow inside of you?! The only breath you manage to take is the one you suck in to shout loudly in surprise as the giant body pushes out into your passage.");	}
 		else { textLP(" You nearly black out from the impossible amount of pressure dropping like a boulder below your "+bellyDesc()+" belly. It's an amazingly powerful sensation that constantly threatens to knock you off balance. How such a thing managed to grow inside of you is astounding and this moment is one you'll never be able to forget. You merely squeak meekly as the massive body manage to push into your passage."); }
 
 		if (birthWidth < vagLimit()/2) {
@@ -285,11 +288,11 @@ function doBirth(i:int, birthCount:int):void{
 			vagChange(vagSize/2,0);
 		}
 
-		if (vulvaSize < babySize/2) { textLP(" The child gently touches down upon the ground beneath you, giving you a chance to take a calming breath as the last of it leaves your own body."); }
-		else if (vulvaSize < babySize) { textLP(" Your "+vulvaDesc()+" lips gently caress the child as it leaves your body, stabalizing the descent as it gently touches down upon the ground beneath you and giving you a chance to take a calming breath."); }
+		if (vulvaSize < birthSize/2) { textLP(" The child gently touches down upon the ground beneath you, giving you a chance to take a calming breath as the last of it leaves your own body."); }
+		else if (vulvaSize < birthSize) { textLP(" Your "+vulvaDesc()+" lips gently caress the child as it leaves your body, stabalizing the descent as it gently touches down upon the ground beneath you and giving you a chance to take a calming breath."); }
 		else { textLP(" The child is engulfed by your "+vulvaDesc()+" lips as it leaves your body, providing a very pillowy and gentle descent to the ground, allowing you to breathe in relief."); }
 
-		if (babySize > tallness/2) { textLP(" However, the newborn is far too large to fit in the space beneath you and you have to step forward slightly to provide more room for it to fully exit."); }
+		if (birthSize > tallness/2) { textLP(" However, the newborn is far too large to fit in the space beneath you and you have to step forward slightly to provide more room for it to fully exit."); }
 
 		textLP("\r\rYou gather your wits and grab up the child from below. ");
 
@@ -375,15 +378,15 @@ function doBirth(i:int, birthCount:int):void{
 	}
 
 	if (pregnancyType == 1000) {
-		outputMainText(" It doesn't take much effort as you feel a round object roll out of "+oneYour(2)+" "+vulvaDesc()+" cunt"+plural(2)+" with a wet plop. You attempt to look around your body to see what it is, but you don't have much time before another squeezes through your cervix, demanding your attention to get back to pushing.\r\rThere's not much of a rest in between contractions to see what is coming out exactly, but all you can tell is that there are a lot. At least a dozen; although it's impossible to keep track amidst all the birthing. It's not until the very last one exits that you're given a long enough reprieve to actually look...\r\rYou seem to be just in time to spot the clear, jelly-like egg unravel around something pink in the center. The pink thing tumbles out from the egg, spreading apart into several small tentacles. Eight, to be exact. And in the center of them is a cute little girl. Not quite a baby, just a really small child, no taller than half a foot. You can hear her giggle a little as she kisses your thighs, thanking you a little before wiggling her way away from you.\r\rYour "+legDesc(2)+" are too weak at the moment to chase after her, but you can see a trail of slime that all of the others had used. They seem to be headed in the same direction: back to the beach where you had obtained them.", false);
+		textLP(" It doesn't take much effort as you feel a round object roll out of "+oneYour(2)+" "+vulvaDesc()+" cunt"+plural(2)+" with a wet plop. You attempt to look around your body to see what it is, but you don't have much time before another squeezes through your cervix, demanding your attention to get back to pushing.\r\rThere's not much of a rest in between contractions to see what is coming out exactly, but all you can tell is that there are a lot. At least a dozen; although it's impossible to keep track amidst all the birthing. It's not until the very last one exits that you're given a long enough reprieve to actually look...\r\rYou seem to be just in time to spot the clear, jelly-like egg unravel around something pink in the center. The pink thing tumbles out from the egg, spreading apart into several small tentacles. Eight, to be exact. And in the center of them is a cute little girl. Not quite a baby, just a really small child, no taller than half a foot. You can hear her giggle a little as she kisses your thighs, thanking you a little before wiggling her way away from you.\r\rYour "+legDesc(2)+" are too weak at the moment to chase after her, but you can see a trail of slime that all of the others had used. They seem to be headed in the same direction: back to the beach where you had obtained them.", false);
 		itemAdd(217);
 	}
 	if (pregnancyType == 1001) {
-		outputMainText(" However, it takes less effort than you thought possible as small hands manually spread you wider and then anchor themselves further and further out. Two tall, narrow ears pop out "+legWhere(1)+" your "+legDesc(2)+", your slime forming a web between them. In another moment, an entire body rolls out of you, wet and almost covered in white fur, around two feet tall.\r\rHer well-developed chest wobbles about as she turns to look at you with am absolutely naughty grin. Then she dashes off, hopping away with her large feet and one hand still jerking furiously between her legs...\r\rSeems like you had obtained a horny stowaway during your time as a giant, though you're unsure if it was an accident on your part or intentional on hers... Shortly after, however, you realize she had left something behind, fishing it out after having been caught between your "+vulvaDesc()+" pussy-lips. ", false);
+		textLP(" However, it takes less effort than you thought possible as small hands manually spread you wider and then anchor themselves further and further out. Two tall, narrow ears pop out "+legWhere(1)+" your "+legDesc(2)+", your slime forming a web between them. In another moment, an entire body rolls out of you, wet and almost covered in white fur, around two feet tall.\r\rHer well-developed chest wobbles about as she turns to look at you with am absolutely naughty grin. Then she dashes off, hopping away with her large feet and one hand still jerking furiously between her legs...\r\rSeems like you had obtained a horny stowaway during your time as a giant, though you're unsure if it was an accident on your part or intentional on hers... Shortly after, however, you realize she had left something behind, fishing it out after having been caught between your "+vulvaDesc()+" pussy-lips. ", false);
 		itemAdd(222);
 	}
 	if (pregnancyType == 1002) {
-		outputMainText(" However, it takes less effort than you thought possible as small hands manually spread you wider and then anchor themselves further and further out. Two tall, narrow ears pop out "+legWhere(1)+" your "+legDesc(2)+", your slime forming a web between them. In another moment, an entire body rolls out of you, wet and almost covered in white fur, around two feet tall.\r\rHis hand still on his pointy prick, a strand of cum drooling from its tip back to your pussy, he turns to look at you with am absolutely naughty grin. Then he dashes off, hopping away with his large feet and one hand still jerking furiously between his legs...\r\rSeems like you had obtained a horny stowaway during your time as a giant, though you're unsure if it was an accident on your part or intentional on his... Shortly after, however, you realize he had left something behind, fishing it out after having been caught between your "+vulvaDesc()+" pussy-lips. ", false);
+		textLP(" However, it takes less effort than you thought possible as small hands manually spread you wider and then anchor themselves further and further out. Two tall, narrow ears pop out "+legWhere(1)+" your "+legDesc(2)+", your slime forming a web between them. In another moment, an entire body rolls out of you, wet and almost covered in white fur, around two feet tall.\r\rHis hand still on his pointy prick, a strand of cum drooling from its tip back to your pussy, he turns to look at you with am absolutely naughty grin. Then he dashes off, hopping away with his large feet and one hand still jerking furiously between his legs...\r\rSeems like you had obtained a horny stowaway during your time as a giant, though you're unsure if it was an accident on your part or intentional on his... Shortly after, however, you realize he had left something behind, fishing it out after having been caught between your "+vulvaDesc()+" pussy-lips. ", false);
 		doImpregnate(7);
 		itemAdd(222);
 	}

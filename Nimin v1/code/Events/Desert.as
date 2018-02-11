@@ -10,7 +10,7 @@ function doDesert():void{
 					textL("You munch on the sandvich, enjoying its meaty goodness, letting it fill your stomach, so moist and delicious. However, an odd gurgling inside makes you worry...");
 					if (boobTotal == 2)	{
 						textLP("\r\rYour chest, close beneath your nipples, begins to tickle. A new pair of sensitive areolas form amongst your "+skinDesc()+", creating an extra row of breasts beneath the originals.");
-						if (bustRatio > 1.03)	{ textLP(" The new nipples protrude as fleshy mounds form from beneath them. The new boobs wobble as they grow to the same size of your original pair, lifting the originals slightly with their girth.	When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
+						if (bustRatio() > 1.03)	{ textLP(" The new nipples protrude as fleshy mounds form from beneath them. The new boobs wobble as they grow to the same size of your original pair, lifting the originals slightly with their girth.	When you head back to town, you'll be covering your extra indecency with your arms the best you can while you head for the tailor to update your "+clothesTop()+" accordingly."); }
 					}
 					if (boobTotal == 6)	{
 						textLP("\r\rYour belly tickles");

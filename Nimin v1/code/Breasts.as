@@ -6,63 +6,63 @@ Breast and udder size, lactation rates, milk-methods, etc.
 */
 
 
-function breastDimension():float{
-	var base_weight:float = 0.0625;  //Pounds
-	var totalBS:float = breastSize * breastSizeMod + milkEngorgement/30 //30 mL of milk = 1 breastSize
-	var r:float = Math.pow((base_weight * breastSize * 6.6),1/3);
-	var d:float = 2*Math.pi*r;
+function breastDimension():Number{
+	var base_weight:Number = 0.0625;  //Pounds
+	var totalBS:Number = breastSize * breastSizeMod + milkEngorgement/30 //30 mL of milk = 1 breastSize
+	var r:Number = Math.pow((base_weight * breastSize * 6.6),1/3);
+	var d:Number = 2*Math.PI*r;
 	d = d - 0.15*chestSize();
 	if (d < 0) { d = 0; }
 	return Math.floor(10*(chestSize() + d))/10.0;
 }
 
 
-function chestSize():float{
-	var bodyMultiplier:float = body/200;
+function chestSize():Number{
+	var bodyMultiplier:Number = body/200;
 	if (bodyMultiplier > .4) { bodyMultiplier = .4;	}
 	return Math.floor(10*(tallness * (0.46 + bodyMultiplier)))/10.0;
 }
 
-function bustSize():float {
-	var bustMultiplier:float = 1.0;
+function bustSize():Number {
+	var bustMultiplier:Number = 1.0;
 	if (boobTotal == 8) { bustMultiplier = 0.8; }
 	if (boobTotal == 10) { bustMultiplier = 0.7; }
 
 	return Math.floor(10*breastDimension()*bustMultiplier)/10.0;
 }
 
-function totalBust():float{
+function totalBust():Number{
 	return chestSize()+bustSize();
 }
 
-function bustRatio():float{
+function bustRatio():Number{
 	return totalBust()/chestSize();
 }
 
-function totalNipSize():float {
-	return Math.floor(10*(nipSize * nipSizeMod))/10.0;
+function totalNipSize():Number {
+	return Math.floor(10*(nippleSize * nippleSizeMod))/10.0;
 }
 
-function nippleDimension():float {
-	var base_weight:float = 0.005; //Pounds
-	var r:float = Math.pow(totalNipSize()*baseWeight*27.77/(2*Math.pi*nipNarrowMod),1/3);
+function nipDimension():Number {
+	var baseWeight:Number = 0.005; //Pounds
+	var r:Number = Math.pow(totalNipSize()*baseWeight*27.77/(2*Math.PI*nipNarrowMod),1/3);
 
 
-	return Math.floor(10*(2*Math.pi*r*nipNarrowMod)/10.0;
+	return Math.floor(10*(2*Math.PI*r*nipNarrowMod))/10.0;
 }
 
-function nipTallRatio():float {
+function nipTallRatio():Number {
 	return nipDimension()/tallness;
 }
 
-function nipBreastRatio():float {
-	var tempFloat:float = 0.0
+function nipBreastRatio():Number {
+	var tempFloat:Number = 0.0
 	if (bustSize() > 0) { tempFloat = nipDimension()/bustSize()	}
 	return tempFloat;
 }
 
 function nipMilkLimit():int{
-	return totalNipSize * nipNarrowMod * 100; //100mL of milk per hour per nip size
+	return totalNipSize() * nipNarrowMod * 100; //100mL of milk per hour per nip size
 }
 
 function milkAmount(origin:int):int{ 
